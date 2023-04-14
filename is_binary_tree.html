@@ -1,0 +1,62 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html>
+<head><title>ape &ndash; is.binary.tree is obsolote</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+</head>
+<body>
+
+<h1>The function <font class="rcode">is.binary.tree</font> is obsolete (before being deprecated)</h1>
+
+<h3>Background</h3>
+
+The function <font class="rcode">is.binary.tree</font> has been introduced in ape 0.2 (September 2002). In ape 4.0 (November 2016), <font class="rcode">is.binary</font> has been made a generic function with methods for the classes "phylo" (<font class="rcode">is.binary.phylo</font>) and "multiPhylo" (<font class="rcode">is.binary.multiPhylo</font>), both being exported in ape's NAMESPACE file.<br><br>
+
+<h3>Why is it important?</h3>
+
+This change has made <font class="rcode">is.binary.tree</font> obsolete. However, several packages use this function, so it is not possible to remove it now.<br><br>
+
+On the other hand, the class "tree" is defined in the package of the same name. So the function currently in ape may create issues if someone wants to define an <font class="rcode">is.binary</font> method for the class "tree".<br><br>
+
+<h3>The situation</h3>
+
+I found that 25 packages on CRAN use <font class="rcode">is.binary.tree</font> in March 2019, 14 in May 2020, 6 in April 2021, and 5 in February 2022. The table below lists the occurrences of this function in the code of these packages (in the R/ directory of the sources on CRAN), the file names, and the line numbers.<br><br>
+
+<table border=1>
+<tr> <th>  </th> <th> Package </th> <th> File </th> <th> Line(s) </th>  </tr>
+  <tr> <td align="right"> 1 </td> <td> ggrasp </td> <td> ggrasp.cluster.R </td> <td> 266 </td> </tr>
+  <tr> <td align="right"> 2 </td> <td> ggrasp </td> <td> ggrasp.create.R </td> <td> 60 </td> </tr>
+  <tr> <td align="right"> 3 </td> <td> phyext2 </td> <td> phyext2.R </td> <td> 506 </td> </tr>
+  <tr> <td align="right"> 4 </td> <td> phyloTop </td> <td> phyloCheck.R </td> <td> 25,29 </td> </tr>
+  <tr> <td align="right"> 5 </td> <td> Rphylip </td> <td> Rphylip.R </td> <td> 2718 </td> </tr>
+  <tr> <td align="right"> 6 </td> <td> secsse </td> <td> event_times.R </td> <td> 12 </td> </tr>
+   </table>
+<br>
+
+Additionally, the NAMESPACE file of the following packages will eventually need to be adjusted since it includes <font class="rcode">is.binary.tree</font> in the list of imported functions:<br><br>
+
+<table border=1>
+  <tr> <td> phyext2 </td> </tr>
+  <tr> <td> Rphylip </td> </tr>
+</table>
+
+<h3>What to do?</h3>
+
+In all cases, the simplest thing to do is to replace <font class="rcode">is.binary.tree</font> by <font class="rcode">is.binary.phylo</font>.<br><br>
+
+If you think that your code may be called with trees and/or list of trees (for instance, in a future version), then you may use <font class="rcode">is.binary</font>.<br><br>
+
+<font color="red"><b>There is no timeline to implement this change.</b></font> Once done and you have released a new version of your package on CRAN, you may drop me a message, but that's not an obligation since I have to check all reverse dependencies of ape before submitting a new version to CRAN.<br><br>
+
+After all packages on CRAN will have implemented this change, <font class="rcode">is.binary.tree</font> will be changed in the following release of ape to give a warning, so that it will still work in the same way but a new package on CRAN will not be able to use it.<br><br>
+
+Then, the next following release of ape will have <font class="rcode">is.binary.tree</font> deprecated (i.e., giving an error with a message pointing to the correct function). Finally, the function might be removed in a future release.
+<hr>
+<center>
+Updated: February 7, 2022<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</body>
+</html>

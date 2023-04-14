@@ -1,0 +1,142 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html>
+<head>
+<title>APE home page</title>
+<meta charset="utf-8"/>
+<link rel="icon" href="image/ape_dark.png">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+<script type="text/javascript" src="javascript/ape_menu_old.js"></script>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button> <a href="https://emmanuelparadis.github.io">English</a>
+
+<div id="twocol"><table border="0" width="100%"><tr><td>
+<center>
+<h1><font size=7>Analyse phylogénétique et évolutive</font></h1></td>
+<td valign=bottom><img width=300 src="image/new_logo_gold_300x152.png"><br></td></tr></table></div>
+<hr>
+<div id="twocol">
+<table border="0" width="100%" cellpadding="5">
+<tr>
+<td width="65%">
+<font color=#333333><b>PROJETS</b></font><br><br>
+
+<style>
+#toggleMe {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide" href=""><b>[+] ape</b></a>
+<p id="toggleMe">ape est un logiciel écrit dans le langage <a href="http://www.R-project.org">R</a> destiné à l'analyse phylogénétique et évolutive. Il est utilisé de façon significative au sein de la communauté des biologistes de l'évolution pour l'analyse des données ainsi que comme cadre de développement de nouvelles méthodes. Depuis 2003, ape a été cité plus de 5000 fois dans la littérature scientifique, et plus de 200 logiciels écrits en R (<q>packages</q>) et qui dépendent de ape ont été publiés sur le <a href="http://cran.r-project.org">CRAN</a>.<br><br>Pour en savoir sur ape, veuillez visiter les pages de ce site.</p><br>
+
+<script>
+document.getElementById('showhide').onclick = function () {
+     changeDisplayState('toggleMe', 'showhide', '<b>[+] ape</b>', '<b>[&minus;] ape</b>');
+     return false;
+};
+</script>
+
+<style>
+#toggleMe2 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide2" href=""><b>[+] pegas</b></a>
+<p id="toggleMe2">pegas est un logiciel pour les analyses de génétique des populations et  évolutive ; il est un compagnon de ape. Pour en savoir plus sur pegas, veuillez visiter <a herf="pegas.html">sa page sur ce site</a>.</p><br>
+
+<script>
+document.getElementById('showhide2').onclick = function () {
+     changeDisplayState('toggleMe2', 'showhide2', '<b>[+] pegas</b>', '<b>[&minus;] pegas</b>');
+     return false;
+};
+</script>
+
+<style>
+#toggleMe3 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide3" href=""><b>[+] coalescentMCMC</b></a>
+<p id="toggleMe3">coalescentMCMC est un nouveau logiciel pour les analyses de coalescence. Depuis la version 0.4, ce package a été considérablement amélioré. Plusieurs modèles temporels de &Theta; sont disponibles et peuvent être comparés par leur vraisemblance ou des critères d'information (AIC, BIC, DIC). Les chaînes de Markov sont simulées de façon très flexible, successivement, en parallèle ou en interaction. Les résultats sont analysés avec le package <a href="http://cran.r-project.org/web/packages/coda/index.html">coda</a>. Toutes les analyses (préparation des données, simulation des chaînes, diagnostiques de convergence, estimation des paramètres, comparaison des modèles, ...) sont faites dans le même environnement. Les temps de calcul sont relativement courts. Le package inclut deux vignettes qui donnent des détails expliquant comment faire de telles analyses.</p><br>
+
+<script>
+document.getElementById('showhide3').onclick = function () {
+     changeDisplayState('toggleMe3', 'showhide3', '<b>[+] coalescentMCMC</b>', '<b>[&minus;] coalescentMCMC</b>');
+     return false;
+};
+</script>
+
+<style>
+#toggleMe4 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide4" href=""><b>[+] phylobench</b></a>
+<p id="toggleMe4">phylobench est un logiciel pour les tests de performance (<i>phylogenetic benchmarking</i>). Il est distribué via <a href="https://github.com/emmanuelparadis/phylobench">GitHub</a>.</p><br>
+
+<script>
+document.getElementById('showhide4').onclick = function () {
+     changeDisplayState('toggleMe4', 'showhide4', '<b>[+] phylobench</b>', '<b>[&minus;] phylobench</b>');
+     return false;
+};
+</script>
+
+<style>
+#toggleMe5 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide5" href=""><b>[+] psmcr</b></a>
+<p id="toggleMe5">psmcr est la version R de psmc, le programme pour le <i>Pairwise Sequential Markovian Coalescent</i> (PSMC). Il est distribué via <a href="https://github.com/emmanuelparadis/psmcr">GitHub</a>.</p><br>
+
+<script>
+document.getElementById('showhide5').onclick = function () {
+     changeDisplayState('toggleMe5', 'showhide5', '<b>[+] psmcr</b>', '<b>[&minus;] psmcr</b>');
+     return false;
+};
+</script>
+
+<br><br>
+Pour plus de détails sur ces projets, visitez les pages en anglais sur ce site.
+
+</td>
+<td valign=top align=right width="25%">
+
+<b>Le code source de ape</b>
+<a id="apehelpbox" onmouseover="mopen('helpboxsvn')" onmouseout="mclosetime()">?
+  <div id="helpboxsvn">
+    Pour les dernières sources: https://github.com/emmanuelparadis/ape.</div>
+</a><br><br>
+
+<a href="https://emmanuelparadis.github.io/NEWS"><b>NEWS</b></a>
+<a id="apehelpbox" onmouseover="mopen('helpnews')" onmouseout="mclosetime()">?
+  <div id="helpnews">
+    Une liste de toutes les nouveautés (depuis la version 0.1) régulièrement mise à jour avec les développements en cours.</div>
+</a><br><br>
+
+<a href="https://stat.ethz.ch/mailman/listinfo/r-sig-phylo"
+   target="blank"><b>r-sig-phylo</b></a>
+<a id="apehelpbox" onmouseover="mopen('boxrsigphylo')" onmouseout="mclosetime()">?
+  <div id="boxrsigphylo">
+    La liste de discussion "R special interest group on phylogenetic and comparative methods
+    and analyses" (grâce aux efforts des collègues du NESCent).</div>
+</a><br><br>
+</td></tr></table></div>
+
+</center>
+
+<div id="twocol">
+<table border="0" width="100%">
+<tr><td>
+
+<center>
+<a href="https://www.ird.fr/" target="blank"><img width=300 src="image/ird.png"></a> <a href="https://isem-evolution.fr/" target="blank"><img width=300 src="image/logo_isem.png"></a><br><br>
+<hr>
+Mise à jour : 16 décembre 2020<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+</tr></td>
+
+<div style="clear:both"></div>
+</body>
+</html>

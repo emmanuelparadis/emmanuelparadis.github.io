@@ -1,0 +1,105 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html>
+<head>
+<title>ape &ndash; Development</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button>
+
+<center>
+<a href="#newrelease">New Release</a> | <a href="#docs">Documents</a> | <a href="#misccode">Misc. Code</a>
+</center>
+
+<p><b>ape</b> is a package in evolution: the first version of ape was released on 27 August 2002. The current version on CRAN is <b>5.7-1</b> and has been released on 13 April 2023. There have been, up to now, 102 releases of ape, with a very substantial increase in the quantity of code.</p>
+
+<center>
+<image src="image/historic_APE.png"><br>
+</center>
+
+<p>You can find a detailed log file <a href="NEWS" target="blank">HERE</a> listing all changes (new features, bug fixes, ...) since the first release of ape. The CRAN keeps an <a href="https://cran.r-project.org/src/contrib/Archive/ape/">archive of previous releases</a> of the package.</p>
+
+<p>The following sections give some details on how a new release of ape is prepared, a list of documents useful for developers, and some miscellaneous code not included in ape.</p>
+
+<a name="newrelease"></a>
+<h3>New Release</h3>
+
+<p>ape is used in many applications (for instance, see the CRAN package <a href="https://cran.r-project.org/package=covid19.analytics">covid19.analytics</a>), so everything that is changed, included or removed from the package must be considered carefully. With the release of ape 5.5, the core of ape has reached a state where major changes are unlikely&mdash;at least in the near future. The main data classes (detailed in the next section) are now stable, efficient, versatile, portable, and scalable. A relatively large number of functions are provided to read, manipulate, analyse, simulate, and write these data.</p>
+
+Releasing a new version of ape has become a tedious process over the past few years. However, the protocol involved in this process has been improved and clarified recently; it is sketched below using the release of ape 6.0 as an example (ARDs: ape's reverse dependencies).<br>
+
+<img width=1000 src="image/protocol.png">
+
+<p>As the maintainer of ape, I am in charge of what's included into or removed from the package. This is not trivial since more than 200 packages on CRAN depend on ape, and (according to <a href="https://cran.r-project.org/web/packages/policies.html">CRAN's rules</a>) any new version of the latter should not break these reverse dependencies. Besides, in my experience, contributions must usually be checked more or less carefully and additional files might have to be updated (NAMESPACE, cross-links among .Rd files, ...)</p>
+
+<p>Contributions to ape usually fall into two categories:</p>
+<ul>
+<li> new functions, in which case I ask the contributor(s) to also write the .Rd file(s);
+<li> fixes or other improvements of existing code in which case the form of the contribution may vary:
+<ul>
+<li> this could be simply an e-mail saying <q>change 'x' for 'y' on line XX in ape/R/xxx.R</q>;
+<li> a <a href="https://man7.org/linux/man-pages/man1/diff.1.html">diff</a> file from the sources;
+<li> the complete code of a function if a re-write is necessary (e.g., for more efficiency);
+<li> a pull-request on GitHub if you use this platform.
+</ul>
+</ul>
+
+<p>The function <font class="rcode">is.binary.tree</font> is obsolete before being deprecated: see the details <a href="is_binary_tree.html">HERE</a>.</p>
+
+<a name="docs"></a>
+<h3>Documents</h3>
+<ul>
+<li> The manual is the reference to use the 300+ functions in ape. It is available in several forms:
+<ul>
+<li> as a PDF document (<i>ca.</i> 300 pages) <a href="https://cran.r-project.org/web/packages/ape/ape.pdf">HERE</a>;
+<li> from R as simple text accessible in the usual way (e.g., <font class="rcode">?read.tree</font>);
+<li> as HTML pages with hyperlinks among pages accessible from with the command <font class="rcode">help.start()</font>.
+</ul>
+<li> Several vignettes are distributed with the package to go deeper in some issues:
+<ul>
+<li> <a href="misc/DrawingPhylogenies.pdf" target="blank"><i>Drawing Phylogenies in R: Basic and Advanced Features With ape</i></a>.&mdash;Explains the rationale behind ape´s graphical functions, and how to make complex figures with phylogenies, their annotations, and other data.
+<li> <a href="misc/RandomTopologies.pdf" target="blank"><i>Enumeration and Simulation of Random Tree Topologies</i></a>.&mdash;Describes how phylogenetic trees are simulated in ape and discusses some issues related to solving multichotomies.
+<li> <a href="misc/MoranI.pdf" target="blank"><i>Moran´s Autocorrelation Coefficient in Comparative Methods</i></a>.&mdash;Clarifies the use of Moran´s autocorrelation coefficient to quantify whether the distribution of a trait among a set of species is affected or not by their phylogenetic relationships.
+</ul>
+<li> The following document explains how trees are coded in R (classes "phylo" and "multiPhylo"), and how these data structures can be passed to C.<br><br>
+
+<a href="misc/FormatTreeR.pdf" target="blank"><i>Definition of Formats for Coding Phylogenetic Trees in R</i></a><br><br>
+
+Previous versions of this document (these are outdated and given here for the record):
+<ul>
+<li> <a href="misc/FormatTreeR_24Oct2012.pdf" target="blank">October 2012</a>
+<li> <a href="misc/FormatTreeR_28July2008.pdf" target="blank">July 2008</a>
+<li> <a href="misc/FormatTreeR_4Dec2006.pdf" target="blank">December 2006</a>
+<li> <a href="misc/FormatTreeR_14June2006.pdf" target="blank">June 2006</a><br><br>
+</ul>
+
+<li> The coding scheme used in ape to code DNA sequences (class "DNAbin") is explained in the next document. Its aim is to provide fast algorithms and efficient programs for comparing sequences:<br><br>
+
+<i>A Bit-Level Coding Scheme for Nucleotides</i> <a href="misc/BitLevelCodingScheme.html">[HTML]</a> <a href="misc/BitLevelCodingScheme_20April2007.pdf" target="blank">[PDF]</a><br><br>
+
+<li> The following document describes the class "bitsplits" for coding splits of taxa:<br><br>
+
+<a href="misc/Format_bitsplits.pdf" target="blank"><i>Definition of the Class "bitsplits"</i></a><br><br>
+
+<li> The class "AAbin" has been introduced in ape a few years ago to code amino acid sequences. It is still under development: see the help page <font class="rcode">?AAbin</font> for current information, or write directly to me for more information.
+</ul>
+
+<a name="misccode"></a>
+<h3>Misc. Code</h3>
+
+Some time ago, I posted some code to visualize trees in ape: it is <a href="treeviz/treeviz.html">HERE</a>.<br><br>
+
+<hr>
+<center>
+Updated: 14 April 2023<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</html>

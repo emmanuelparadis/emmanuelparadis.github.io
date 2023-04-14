@@ -1,0 +1,71 @@
+<html><head><title>treeviz functions</title>
+
+<style type="text/css" media="all">
+body {
+font-family: Verdana, sans-serif;
+font-size: 13pt;
+width: 750pt;
+text-align: justify;
+}
+
+.codebox {
+border: 1px solid black;
+font-family: Courier;
+font-size: 12pt;
+color: Sienna;
+padding-top: 3pt;
+padding-left: 3pt;
+}
+</style></head>
+
+<body bgcolor="lightyellow">
+
+This page describes functions for visualizing trees in ape. The code is <a href="treeviz.R">HERE</a>. Examples are given at the bottom of this page.<br><br>
+
+There is no help page at the moment: information are given below, and all feedback is welcome.<br><br>
+
+<div class="codebox">
+treevizPDF(x, ..., height = NULL, width = 10, new = FALSE)
+</div>
+
+<ul>
+<li> <font face="courier">x</font>: a tree (of class "phylo")
+<li> <font face="courier">...</font>: arguments passed to plot.phylo
+<li> <font face="courier">height</font>: the height in inches of the PDF file, calculated by default so labels do not overlap
+<li> <font face="courier">width</font>: the width in inches of the PDF file
+<li> <font face="courier">new</font>: whether to open a new PDF viewer
+</ul>
+
+Because R's graphical window is not scrollable, plotting a large tree results in unreadable tip labels because they overlap too much (or are too small if you play with 'cex'). This function opens a PDF viewer (typically Acrobat Reader) with the tree plotted in a fully scrollable window.<br><br>
+
+The 'dot-dot-dot' argument comes second so that you can use this function as you'd do with plot.phylo (eg, <font face="courier">treevizPDF(tr, "c", FALSE)</font>). The usual arguments of plot.phylo can be used (except 'y.lim' which is used internally).<br><br>
+
+I found that it works pretty well: the limitation seems to be the PDF viewer. With Acrobat Reader, the paper size seems limited to 200 inches, so this works fine with up to about 1050 tips. With evince (Gnome PDF viewer) this is OK up to 3000 tips.<br><br>
+
+<div class="codebox">
+treevizGL(x, edge.color = "orange", tip.color = "black")
+</div>
+
+<ul>
+<li> <font face="courier">x</font>: a tree (of class "phylo")
+<li> <font face="courier">edge.color</font>: color used for the edges
+<li> <font face="courier">tip.color</font>: color used for the tip labels
+</ul>
+
+This function has pretty much the same goal than the previous one, but using the 'rgl' package. The functionality is reduced: only a fully triangular cladogram can be plotted and colouring is the same for all edges or tip labels. The only limitation is with the time needed to calculate all the coordinates. It takes a few seconds to plot a tree with 100,000 tips, though its manipulation with the mouse is quite slowed-down. This is very experimental.<br><br>
+
+Examples:
+
+<div class="codebox">
+source("treeviz.R")
+## or: source("https://emmanuelparadis.github.io/treeviz/treeviz.R")<br>
+tr <- rtree(1e3)<br>
+treevizPDF(tr)<br>
+treevizGL(tr)<br>
+tr <- rtree(1e4)<br>
+treevizGL(tr)<br>
+</div>
+
+</body></html>
+
+

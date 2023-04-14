@@ -1,0 +1,91 @@
+h1 {
+color: #00F;
+}
+
+h2 {
+color: #00B;
+}
+
+h3 {
+color: #00B;
+}
+
+body {
+font-family: sans-serif;
+font-size: 12pt;
+width: 550pt;
+text-align: justify;
+margin: 0 auto;
+padding: 15px;
+}
+
+#twocol {
+font-family: Verdana, sans-serif;
+font-size: 12pt;
+width: 650pt;
+text-align: justify;
+}
+
+.sidebar {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #BB0;
+overflow-x: hidden;
+transition: 0.1s;
+padding-top: 60px;
+}
+
+.sidebar a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 15pt;
+text-align: left;
+color: #00B;
+text-align: left;
+display: block;
+transition: 0.1s;
+}
+
+.sidebar a:hover {
+color: #FFF;
+}
+
+.sidebar .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+.openbtn {
+font-size: 20px;
+cursor: pointer;
+background-color: #BB0;
+color: #00B;
+padding: 10px 15px;
+border: none;
+}
+
+.openbtn:hover {
+background-color: #00B;
+color: #BB0;
+}
+
+#main {
+transition: margin-left .2s;
+padding: 16px;
+}
+
+@media screen and (max-width: 480px) {
+.sidebar {padding-top: 40px;}
+.sidebar a {font-size: 20px;}
+body {font-size: 18pt; text-align: left; width: 480pt;}
+#twocol {font-size: 18pt; width: 480pt; text-align: left;}
+#titre {font-size: 26pt;}
+}
+

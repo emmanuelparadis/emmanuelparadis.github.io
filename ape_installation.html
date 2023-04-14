@@ -1,0 +1,62 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html>
+<head><title>ape &ndash; Installation</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button>
+
+<center>
+<a href="#cran"><b>Installation from CRAN</b></a> | <a href="#github"><b>Installation from GitHub</b></a>
+</center>
+
+<p><b>ape</b> is distributed in three different ways:</p>
+
+<ul>
+<li> On <a href="https://cran.r-project.org/package=ape">CRAN</a>,
+<li> On <a href="https://github.com/emmanuelparadis/ape">GitHub</a>,
+<li> As a binary package for Linux Debian (and its derivatives like Ubuntu): <a href="https://packages.qa.debian.org/r/r-cran-ape.html" target="blank">https://packages.qa.debian.org/r/r-cran-ape.html</a>. This package is distributed and maintained by the Debian Team.
+</ul>
+
+<p>If you need to install <b>R</b>, all required information can be found on the <a href="http://cran.r-project.org/" target="blank">CRAN website</a>.
+
+<a name="cran"></a>
+<h3>Installation from CRAN</h3>
+
+<p>There are many different ways to install R packages, so your way is certainly the best one; only the essential information are given here.</p>
+
+<p>ape requires R 3.2.0 or higher. In addition, the package <b>Rcpp</b> (0.12.0 or higher) must be installed on your machine.</p>
+
+<p>There are no other requirement and ape runs under all operating systems where R can be installed, and under any running environment (Emacs/ESS, RStudio, ...)</p>
+
+<p>Three other packages are <q>suggested</q>: <b>expm</b>, <b>gee</b>, and <b>igraph</b>. This means that ape can be installed and used even if these packages are not installed, but you won't be able to use a few of ape's functions (e.g., <font face="courier">compar.gee</font>). Anyway, most package installation procedures also install the suggested packages (and Rcpp at the same time).</p>
+
+<p>The version of <a href="https://cran.r-project.org/package=ape">ape on CRAN</a> is considered <i>stable</i>. There is no fixed schedule for a new release though they usually happen once or twice in a year.</p>
+
+<hr>
+<a name="github"></a>
+<h3>Installation from GitHub</h3>
+
+The version of ape on GitHub is considered as <i>testing</i>. The stable version on CRAN is usually numbered <b>x.y</b> (1.0, 1.1, 2.0, ...) while the testing version is numbered <b>x.y-t</b> where <b>x.y</b> is the current version on CRAN, and <b>t</b> is 1, 2, ... With this system the testing version number is always larger than the current CRAN version, but always smaller than the next one. There can be exceptions to this scheme if a quick bug-fixing release is needed on CRAN (e.g., version 5.4-1).</p>
+
+<p>The testing version includes new features that will be included in the future version on CRAN. It is mainly directed to maintainers of packages depending on ape, though it can be used by those who are curious about new features.</p>
+
+<p>If you want to know more about ape's development, see the <a href="ape_development.html">Development</a> section.
+
+<p>Like for installation from CRAN, installing a package from GitHub can be done in different ways, so your way is certainly the best one.</p>
+
+<hr>
+<center>
+Updated: 18 December 2020<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</html>
+

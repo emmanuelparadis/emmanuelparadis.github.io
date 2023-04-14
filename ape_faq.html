@@ -1,0 +1,265 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html lang="en">
+<html><head>
+<title>ape &ndash; FAQ</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button>
+<a name="top"></a>
+<h2>ape's FAQ</h2>
+
+<ol>
+<li> <a href="#version">How do I know which version of ape I am using?</a>
+<li> <a href="#gui">Why don't you develop a GUI for ape?</a>
+<li> <a href="#rhelp">I posted a query about ape on the r-help mailing list, but got no answer.</a>
+<li> <a href="#treefileformat">What tree file formats are supported by ape?</a>
+<li> <a href="#quotesinnewick">I have a tree file in Newick format where the taxa names are quoted because they contain special characters (parentheses, comma, ...): is that a problem?</a>
+<li> <a href="#commentinnewick">I have a tree file in Newick format with some comments within straight brackets: is that a problem?</a>
+<li> <a href="#extractbl">I have read a tree in R with ape, but how do I extract branch lengths?</a>
+<li> <a href="#ladderize">Is there an option to plot a tree left- or right-ladderized?</a>
+<li> <a href="#distpairdel">I computed a distance matrix from a set of aligned DNA sequences, but the results do not make sense.</a>
+<li> <a href="#computebrlen">I have a tree without branch lengths: how can I use it in comparative analyses?</a>
+<li> <a href="#picmulticho">I have a tree with multichotomies: can I compute phylogenetically independent contrasts?</a>
+<li> <a href="#picregori">I have computed phylogenetically independent contrasts: how do I perform the regression through the origin?</a>
+<li> <a href="#compargeebinom"><font face = "courier">compar.gee</font> sometimes hangs indefinitely when analysing a binomial response.</a>
+<li> <a href="#bootphylo">I have done a bootstrap analysis with <font face = "courier">boot.phylo</font> but some bootstrap values seem at the wrong place after rooting the tree.</a>
+<li> <a href="#phylomatic">I tried to read a tree file from phylomatic but <font face = "courier">read.nexus</font> returns an error message: "There is apparently two root edges in your file: cannot read tree file."</a>
+<li> <a href="#Bayestrees">I have a NEXUS tree output from Bayestrees. I can read it into R with <font face = "courier">read.nexus</font> but when I try to plot it or do some analyses ape throws an error.</a>
+<li> <a href="#squarejoint">I want to plot a phylogram with square angles, not rounded.</a>
+<li> <a href="#brokenedge"> Some branches in my tree are very long so that the shorter ones are not readable when the tree is plotted: how can I <q>break</q> them?</a>
+</ol>
+
+<hr>
+
+<ol>
+<a name="version"></a>
+<li> <b>How do I know which version of ape I am using?</b><br>
+In R, type:
+
+<p><font face = "courier">library(help = ape)</font></p>
+
+<p>or:</p>
+
+<p><font face = "courier">packageVersion("ape")</font></p>
+
+<p>In many cases, a problem can be solved by updating ape <i>and</i> R.</p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="gui"></a>
+<li> <b>Why don't you develop a GUI for ape?</b><br>
+There are at least three good reasons:
+<ul>
+<li> Developing a GUI is a lot work, and its maintenance and evolution is far from being straightforward.
+<li> Writing scripts of commands helps the users to see the logical integration of their analyses.
+<li> Repeating commands is almost always needed.
+<li> After, more than 18 years of existence of ape, nobody volunteered to develop a GUI.
+</ul>
+<br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="rhelp"></a>
+<li> <b>I posted a query about ape on the r-help mailing list, but got no answer.</b><br>
+The r-help mailing list is for general questions about R; ape is a specialized package (there are more than 15,000 on CRAN), so you are not likely to find your answers there. If needed, you can contact the <a href="ape_authors.html" target="main">Authors</a> of the functions you are using.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="treefileformat"></a>
+<li> <b>What tree file formats are supported by ape?</b><br>
+ape can read and write trees in Newick and Nexus formats with its functions <font face = "courier">read.tree</font>, <font face = "courier">write.tree</font>, <font face = "courier">read.nexus</font>, and <font face = "courier">write.nexus</font>. There are almost no restriction with respect to the Newick format definition (see below). Note also the function <font face = "courier">read.caic</font> to read trees in the specific format of the CAIC program.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="quotesinnewick"></a>
+<li> <b>I have a tree file in Newick format where the taxa names are quoted because they contain special characters (parentheses, comma, ...): is that a problem?</b><br>
+Probably yes. Recently, <font face = "courier">read.tree</font> was improved so that labels within single quotes can be handled. This is still under progress. Note that quotes (of any types) can be used freely in R, but <font face = "courier">write.tree</font> substitute them. These restrictions may change in the future.<br>(Most issues reported were not consistent as some labels were quoted whereas others were not. So it is not clear what should be expected.)<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="commentinnewick"></a>
+<li> <b>I have a tree file in Newick format with some comments within straight brackets: is that a problem?</b><br>
+Yes. These are simply ignored at the moment (i.e., treated as normal characters), but comments may be inserted in the file using R's standard way (i.e., everything after a `#' is ignored).<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="extractbl"></a>
+<li> <b>I have read a tree in R with ape, but how do I extract branch lengths?</b><br>
+If your tree has been named <font face = "courier">tr</font>:
+
+<p><font face = "courier">tr$edge.length</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="ladderize"></a>
+<li> <b>Is there an option to plot a tree left- or right-ladderized?</b><br>
+You must first rearrange the internal structure of your tree, then you can plot it in the usual way, e.g.:
+
+<p><font face = "courier">
+tr <- ladderize(tr) # right-ladderized by default<br>
+plot(tr)<br>
+tr <- ladderize(tr, FALSE) # left-ladderized<br>
+plot(tr)
+</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="distpairdel"></a>
+<li> <b>I computed a distance matrix from a set of aligned DNA sequences, but the results do not make sense.</b><br>
+By default, <font face = "courier">dist.dna</font> computes distances after removing the sites with at least one missing observation. If your set of sequences is heterogeneous, this may resuls in very few sites remaining (even possibly none). Use the option <font face = "courier">pairwise.deletion = TRUE</font> if you want to use all sites on a pairwise basis, but in that case the distances will not be computed with the same sites for all pairs of taxa.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="computebrlen"></a>
+<li> <b>I have a tree without branch lengths: how can I use it in comparative analyses?</b><br>
+See the function <font face = "courier">compute.brlen</font>: it has several methods to set branch lengths.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="picmulticho"></a>
+<li> <b>I have a tree with multichotomies: can I compute phylogenetically independent contrasts?</b><br>
+Yes. You need first to resolve the multichotomies with <font face = "courier">multi2di</font>, then you can compute the contrasts. You will certainly need to adjust the number of degrees of freedom of your subsequent analyses (to see how many nodes have been resolved, just print the tree before and after applying <font face = "courier">multi2di</font>, or use the new function <font face = "courier">Nnode</font>).<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="picregori"></a>
+<li> <b>I have computed phylogenetically independent contrasts: how do I perform the regression through the origin?</b><br>
+Say you have two sets of contrasts named <font face = "courier">picx</font> and <font face = "courier">picy</font>:
+
+<p><font face = "courier">lm(picy ~ picx - 1)</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="compargeebinom"></a>
+<li> <b><font face = "courier">compar.gee</font> sometimes hangs indefinitely when analysing a binomial response.</b><br>
+This should not occur now with gee 4.13-15. An error now occurs in this case: when the correlation among some taxa is very strong the effective sample size is very low and the predicted probabilities are close to 1 (or 0 which caused the freeze before the fix of gee). A work-around is still to use a different set of branch lengths as computed with <font face = "courier">compute.brlen</font> using a low value for the option `power'.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="bootphylo"></a>
+<li> <b>I have done a bootstrap analysis with <font face = "courier">boot.phylo</font> but some bootstrap values seem at the wrong place after rooting the tree.</b><br>
+This is issue has been fully solved with the new version of <font face = "courier">root()</font>: see its help page for details and this reference:<br><br>
+
+Czech L., Huerta-Cepas J. and Stamatakis A. 2017. A critical review on the use of support values in tree viewers and bioinformatics toolkits. <i>Molecular Biology and Evolution</i> <b>34</b> 1535&ndash;1542. <a href="https://doi.org/10.1093/molbev/msx055">doi:10.1093/molbev/msx055</a>.<br><br>
+
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="phylomatic"></a>
+<li> <b>I tried to read a tree file from phylomatic but <font face = "courier">read.nexus</font> returns an error message: "There is apparently two root edges in your file: cannot read tree file."</b><br>
+It is common that trees from phylomatic have two root edges, e.g.:<br><br>
+
+((................... )seedplant:1.000000)euphyllophyte:1.000000;<br><br>
+
+Trees in ape cannot handle this kind of tree. A solution is to fuse (by hand) the two root edges in the Newick string:<br><br>
+
+(................... )euphyllophyte:2.000000;<br><br>
+
+In recent versions of ape, the error is likely to be: "The tree has apparently singleton node(s): cannot read tree file." Megan Bartlett gave a detailed explanation of this problem and how to handle it on r-sig-phylo: <a href="https://www.mail-archive.com/r-sig-phylo@r-project.org/msg02637.html">read it here</a>.<br><br>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="Bayestrees"></a>
+<li> <b>I have a NEXUS tree output from Bayestrees. I can read it into R with <font face = "courier">read.nexus</font> but when I try to plot it or do some analyses ape throws an error.</b><br>
+Some programs, such as Bayestrees, write NEXUS files with taxa numbered from 0 to n &ndash; 1. <font face = "courier">read.nexus</font> can read such files but the tips are then badly numbered from 0 to n &ndash; 1, instead of 1 to n. To be sure that this is the problem, open the file and you should observe something like:<br><br>
+
+<p>
+BEGIN TREES;<br>
+	TRANSLATE<br>
+		0 Pongo,<br>
+		1 Pan,<br>
+                etc ...<br>
+</p>
+
+It is possible to fix the tree after it is read into R with:<br><br>
+
+<p><font face = "courier">
+s <- phy$edge[, 2] <= Ntip(phy)<br>
+phy$edge[s, 2] <- phy$edge[s, 2] + 1L<br>
+</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="squarejoint"></a>
+<li> <b>I want to plot a phylogram with square angles, not rounded.</b><br>
+Before plotting the tree, type the following command:
+
+<p><font face = "courier">
+par(ljoin = 2, lend = 2)
+</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+<a name="brokenedge"></a>
+<li> <b>Some branches in my tree are very long so that the shorter ones are not readable when the tree is plotted: how can I <q>break</q> them?</b><br>
+
+The code below is now included in ape (ver. 3.5) with the function <font face = "courier">plotBreakLongEdges</font>.<br><br>
+
+We first make a copy of the tree because we're going to modify it:
+
+<p><font face = "courier">
+tr.bak <- tr
+</font></p>
+
+We then need to identify the long edge(s). This could done by plotting the tree and then printing the edge numbers:
+
+<p><font face = "courier">
+plot(tr)<br>
+edgelabels()
+</font></p>
+
+An alternative is to find the edges longer than a given value (say 1):
+
+<p><font face = "courier">
+i <- which(tr$edge.length > 1)
+</font></p>
+
+We then modify the length of these edges with a small value, for instance the mean of the shorter branch lengths:
+
+<p><font face = "courier">
+tr$edge.length[i] <- mean(tr$edge.length[-i])
+</font></p>
+
+We can now plot the modified tree and show the (originally) long branches with, for instance, dashed lines:
+
+<p><font face = "courier">
+edge.style <- rep(1, Nedge(tr))<br>
+edge.style[i] <- 2<br>
+plot(tr, edge.lty = edge.style)
+</font></p>
+
+Another possibility is (this can be combined with the above):
+
+<p><font face = "courier">
+plot(tr)<br>
+edgelabels("//", i, frame = "n")
+</font></p>
+
+A better visual effect can be achieved by drawing a white (or of the 
+same colour than the background) symbol before printing the <q>//</q>:
+
+<p><font face = "courier">
+plot(tr)<br>
+edgelabels(edge = i, pch = 19, col = "white")<br>
+edgelabels("//", i, frame = "n")
+</font></p>
+
+<div align=right><a href="#top">Back to top</a></div><br><br>
+
+</ol>
+
+<hr>
+<center>
+Updated: 18 December 2020<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</html>

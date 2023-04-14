@@ -1,0 +1,82 @@
+#apemenu
+{
+margin: 0;
+padding: 0;
+z-index: 30}
+
+#apemenu li
+{
+margin: 0;
+padding: 0;
+list-style: none;
+float: left;
+font: bold 11px verdana}
+
+#apemenu li a
+{
+display: block;
+margin: 0 1px 0 0;
+padding: 4px 10px;
+width: 167.5px;
+background: #FFB000;
+color: #FFF;
+text-align: center;
+text-decoration: none}
+
+#apemenu li a:hover
+{background: #FF0000}
+
+#apemenu div
+{
+position: absolute;
+visibility: hidden;
+margin: 0;
+padding: 0;
+background: #EAEBD8;
+border: 1px solid #5970B2}
+
+#apemenu div a
+{
+position: relative;
+display: block;
+margin: 0;
+padding: 5px 10px;
+width: auto;
+white-space: nowrap;
+text-align: left;
+text-decoration: none;
+background: #FFF0E6;
+color: #000;
+font: 11px verdana}
+
+#apemenu div a:hover
+{
+background: #FF0000;
+color: #FFF}
+
+
+
+#apehelpbox
+{
+margin: 0px;
+padding: 2px;
+color: #FFF;
+background: #AAAAFF;
+font: bold 14pt verdana}
+
+#apehelpbox:hover
+{background: #0000FF}
+
+#apehelpbox div
+{
+position: absolute;
+visibility: hidden;
+float: left;
+margin: 0;
+padding: 4px;
+width: 305px;
+height: auto;
+background: #AAAAFF;
+color: #000;
+font: 11px verdana;
+border: 1px solid #000000}

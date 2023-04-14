@@ -1,0 +1,162 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html lang="en">
+<META name="keywords" content="ape,bioinformatics,evolution,phylogenetics">
+<META name="description" content="extra information for the book ANALYSIS OF PHYLOGENETICS AND EVOLUTION WITH R by Emmanuel Pardis">
+<head><title>Analysis of Phylogenetics and Evolution with R</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button>
+<h2>Analysis of Phylogenetics and Evolution with R</h2>
+
+For the first edition (2006) see below.
+
+<hr>
+<h2><font color="purple">Second Edition &mdash; 2012</font></h2>
+
+<p>The page on Springer's Web site is <a
+href="http://www.springer.com/life+sciences/evolutionary+%26+developmental+biology/book/978-1-4614-1742-2" target="blank">HERE</a>.</p>
+
+<div id="twocol"><table border="0" width="80%"><tbody><tr>
+<td>
+<img width=300 src="APER/APER2/APER2_cover.jpg">
+</td>
+
+<td valign="top" align="center">
+
+<video src="video/bdna.webm" type="video/webm" controls>
+Votre navigateur ne supporte pas la balise vidéo.
+</video><br><br>
+An animated version of Fig. 3.2.<br><br>
+The original PDB file: <a href="APER/APER2/bdna_pdb.txt" download="bdna.pdb">bdna.pdb</a>.
+</td>
+
+</tr></tbody></table></div>
+
+<ul>
+<li> A gzipped archive with the data files and the R scripts: <a href="APER/APER2/APER2_Online_Material.tar.gz">APER2_Online_Material.tar.gz [800 KB]</a>.<br>You can download the individual files below:
+<ul>
+<li> The data files:
+<ul>
+<li> <a href="APER/APER2/host_parasite.tre">host_parasite.tre</a> The host&ndash;parasite (<i>Chaetodipus</i>&ndash;<i>Fahrenholzia</i>) trees used to make Fig. 4.21.
+<li> <a href="APER/APER2/mammal_mtGenome.fasta">mammal_mtGenome.fasta [3.9 MB]</a> The 233 mammalian mitochondrial genomes used as a case study in Chapter 3.
+<li> <a href="APER/APER2/primfive.tre">primfive.tre</a> The five primate species tree used in many examples in Chapter 6.
+<li> <a href="APER/APER2/rodent_clock.tre">rodent_clock.tre</a> The ultrametric tree of 14 species of rodents used for Fig. 4.20.
+<li> <a href="APER/APER2/rodent.tre">rodent.tre</a> The tree of 14 species of rodents used in several examples in Chapter 4.
+<li> <a href="APER/APER2/sylvia_data.txt">sylvia_data.txt</a> The ecological data of the <i>Sylvia</i> warblers for the case studies in Chapters 3, 5, and 6.
+<li> <a href="APER/APER2/sylvia.txt">sylvia.txt</a> The sequence data for the <i>Sylvia</i> warblers.
+</ul>
+<li> The scripts of R commands used in the case studies:
+<ul>
+<li> <a href="APER/APER2/SylviaWarblers.R">SylviaWarblers.R</a>
+<li> <a href="APER/APER2/MammalianMitochondrialGenomes.R">MammalianMitochondrialGenomes.R</a>
+<li> <a href="APER/APER2/ButterflyDNABarcodes.R">ButterflyDNABarcodes.R</a>
+</ul>
+</ul>
+<li> The <a href="APER/APER2/APER2_errata.pdf">list of errata</a>.
+<li> Some additional figures and videos:
+</ul>
+
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/AAstat_col.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/AAstat_col.png"></a></td>
+
+<td>This a colour version of Fig. 3.7. Actually, <font face="courier">AAstat</font> does not allow the user to modify the colours, and I modified it to make the BW version in the book.</td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/image_woodmouse.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/image_woodmouse.png"></a></td>
+
+<td>An example of the use of <font face="courier">image</font> with DNA sequences showing the default colours (which can be modified, see below).</td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/image_woodmouse_zoomed.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/image_woodmouse_zoomed.png"></a></td>
+
+<td>A variation around Fig. 3.8: the differences are the colour (blue instead of black) and the grid which, instead of marking each column as in the book, shows blocks of three columns (thus, 51 columns are displayed instead of 50 in the book). The code is:<br><br>
+<font face="courier">image(woodmouse[, 1:51], c("g", "n"), c("blue", "grey"))</font><br>
+<font face="courier">grid(51/3, 15, col = "black")</font><br></td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="55%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<video src="video/ntx.webm" type="video/webm" controls>
+Votre navigateur ne supporte pas la balise vidéo.
+</video></td>
+
+<td>An animated version of Fig. 4.29.</td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/fig_consnet.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/fig_consnet.png"></a></td>
+
+<td>Another version of Fig. 5.11 showing the idea behind consensus networks. The shades of grey have been replaced by colours.</td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="70%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/Fig516_col.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/Fig516_col.png"></a></td>
+
+<td>Figure 5.16 with the colours used by default by <b>lattice</b>.</td>
+</tr></tbody></table></div>
+
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/tr_bisse_col.png', 'screenshot_window', 'width=1300,height=850')"><img width=170 src="image/tr_bisse_col.png"></a></td>
+
+<td>Figure 7.4 with the colours used by default by <b>diversitree</b>&mdash;looking nicer than the shades of grey.</td>
+</tr></tbody></table></div>
+
+
+<hr>
+<h2><font color="purple">First Edition &mdash; 2006</font></h2>
+
+<img width=200 src="APER/APER_cover.jpg">
+
+<p>The page of this book on Springer's Web site is <a
+href="http://www.springer.com/west/home/statistics/stats+life+sci?SGWID=4-10134-22-156993712-0" target="blank">HERE</a>.</p>
+
+<p>You can find here:
+<ul>
+<li> The data files and script files (as a <a
+href="APER/APER_Supplementary_Material.tar.gz">zipped tar archive</a>) to
+repeat the analyses in the "Case Studies" (this includes the two
+rodent trees forgotten in the same file on Springer's site).
+<li> The list of <a href="APER/APER_errata.pdf">errata</a>.
+<li> A <a href="APER/APER_update.pdf">list of updates</a> pointing to the new features accomplished since the text of the book was completed (February 2006).
+<li> The <a href="APER/APER_solutions.pdf">solutions to the exercices</a>.
+</ul>
+</p>
+
+Reviews:
+
+<ul>
+<li> Daniel Stoebel. 2007. <i>Quarterly Review of Biology</i> <b>82:</b> 148. DOI: <a href="https://doi.org/10.1086/519586">10.1086/519586</a>
+<li> Barbara R. Holland. 2007. <i>Systematic Biology</i> <b>56:</b> 694&ndash;696. DOI: <a href="https://doi.org/10.1080/10635150701475589">10.1080/10635150701475589</a>
+<li> Marc A. Suchard. 2007. <i>Biometrics</i> <b>82:</b> 1304&ndash;1305. DOI: <a href="https://doi.org/10.1111/j.1541-0420.2007.00905_11.x">10.1111/j.1541-0420.2007.00905_11.x</a>
+<li> M. Last. 2007. <i>Journal of the American Statistical Association</i> <b>102:</b> 1477&ndash;1478. DOI: <a href="https://doi.org/10.1198/jasa.2007.s239">10.1198/jasa.2007.s239</a>
+<li> Vincent Careau. 2007. <i>Écoscience</i> <b>14:</b> 399&ndash;400. URL: <a href="https://www.jstor.org/stable/42902051">https://www.jstor.org/stable/42902051</a>
+</ul>
+
+<hr>
+<center>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</html>

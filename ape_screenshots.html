@@ -1,0 +1,130 @@
+<!DOCTYPE HTML SYSTEM "html.dtd"><html>
+<head>
+<title>ape &ndash; screenshots</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+
+<style type="text/css" media="all">
+.scrollbox {width: 100%; overflow: auto}
+.codebox {
+border: 1px solid black;
+font-family: Courier;
+font-size: 12pt;
+color: Sienna;
+padding-top: 3pt;
+padding-left: 3pt;
+}
+</style>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+<button class="openbtn" onclick="openNav()">☰</button> <p>These screenshots are quite outdated and left here mainly for the record. I hope you appreciate the <q>vintage</q> KDE desktop from Knoppix (see the dates ;) ).</p>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/Figure2_TEJEDO.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/Figure2_TEJEDO-th.png"></a></td>
+<td>Plotting a phylogeny and distributions of three traits for each species (contributed by Enrico Rezende; source: Richter-Boix A., Tejedo M. &amp; Rezende E. L. 2011. Evolution and plasticity of anuran larval development in response to desiccation: a comparative analysis. <i>Ecology and Evolution</i> <b>1:</b> 15&ndash;25.).<br><br>
+Example code on how to make a similar plot can be found <a href="http://www.mail-archive.com/r-sig-phylo@r-project.org/msg00665.html" target="blank">here</a>.</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc2.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc2-th.png"></a></td>
+<td>A view on the console computing phylogenetically independent
+contrasts (with random data for the occasion), and the corresponding
+help page in HTML open with Mozilla Firefox (using the command
+<font face="courier">help.start()</font> in R) in the backgound.</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc3.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc3-th.png"></a></td>
+<td>Loading the `woodmouse' data set, computing the distance matrices with
+two substitution models (K80, the default for this function, and
+TN93), computing the neighbour-joining trees for both, and plotting
+both estimated trees.</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc4.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc4-th.png"></a></td>
+<td>Using the function <font face="courier">zoom</font> to visualize the
+genus <i>Pipistrellus</i> within the Chiroptera supertree (source:
+Jones <i>et al.</i> 2002). The window partition is done automatically
+(no need to call <font face="courier">layout</font>).</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc5.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc5-th.png"></a></td>
+<td>A more fanciful example: we visualize four genera. The use of <font face="courier">lapply</font> is clearly helpful here: the two first
+commands could be replaced with:
+<div class="codebox">
+ind&lt;- list(grep("Murina",chiroptera$tip.label),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep("Artibeus", chiroptera$tip.label),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep("Kerivoula", chiroptera$tip.label),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep("Eptesicus", chiroptera$tip.label))<br>
+</div></td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc6.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc6-th.png"></a></td>
+<td>Two ways, among many others, to add symbols on the nodes of a tree
+(with a random tree and random data): piecharts and thermometers (I
+personnaly prefer the latter). The code is available in the help page
+of <font face="courier">nodelabels</font>.</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc7.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc7-th.png"></a></td>
+<td>The graphical window of R is not scrollable, but you can write a tree
+to a PDF file: if your viewer automatically refreshes its content from
+the disk (as KPDF does), then you have real-time plotting of large
+trees.</td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr>
+<td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc8.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc8-th.png"></a></td>
+<td>An experiment linking ape with rgl (a port of OpenGL to R). The limitation is that the zoom actions can be done only on the centre of the point of view.</td>
+</tr></tbody></table></div>
+<div id="twocol"><table border="0" width="65%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc9.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc9-th.png"></a></td>
+
+<td>Phylogenetic pop-art.
+<div class="codebox">
+<div class="scrollbox" style="height: 7em; width: 25em">
+par(bg = "slategrey")<br>
+n &lt;- 20<br>
+s &lt;- 1:n^2<br>
+layout(matrix(s, n, n))<br>
+for (i in s)<br>
+&nbsp;plot(rcoal(n), no.margin = TRUE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;show.tip.label = FALSE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edge.color=sample(rainbow(n^2), size=1),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction="u")
+</div></div></td>
+</tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="65%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc10.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc10-th.png"></a></td>
+<td>A collection of trees by ape.
+<div class="codebox">
+<div class="scrollbox" style="height: 6em">
+tr &lt;- rtree(10)<br>
+layout(matrix(1:9, 3, 3))<br>
+par(mar = rep(0, 4))<br>
+plot(tr)<br>
+plot(tr, "c")<br>
+plot(tr, "u")<br>
+plot(tr, "p", FALSE)<br>
+plot(tr, "c", FALSE)<br>
+plot(tr, "u", FALSE)<br>
+plot(tr, "r")<br>
+plot(tr, "f")<br>
+plot(tr, "f", FALSE)
+</div></div></td></tr></tbody></table></div>
+
+<div id="twocol"><table border="0" width="100%" cellpadding="10"><tbody><tr><td valign="top">
+<a href="javascript:void(0)" onclick="window.open('image/sc11.png', 'screenshot_window', 'width=1300,height=850')"><img src="image/sc11-th.png"></a></td>
+<td>Two trees can be plotted face-to-face easily with <font face="courier">cophyplot</font> (here from the examples of the help page).</td></tr></tbody></table></div>
+
+<hr>
+<center>
+Updated: November 19, 2009<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE HTML SYSTEM "html.dtd">
+<html>
+<head>
+<title>ape &ndash; home page</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="image/ape_dark.png">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_style.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_menu.css">
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet/ape_mainMenu.css">
+<script type="text/javascript" src="javascript/ape_menu.js"></script>
+<script type="text/javascript" src="javascript/ape_mainMenu.js"></script>
+</head>
+<body>
+<div id="sidemenu"></div>
+<script>mainMenu()</script>
+
+<div id="twocol">
+<table border="0" width="100%">
+<tr><td>
+<button class="openbtn" onclick="openNav()">☰</button> <a href="index-fr.html">Français</a><br>
+<div id="titre">Analysis of<br>Phylogenetics and<br>Evolution</div>
+</td>
+<td valign=center align=right>
+<a href="image/new_logo_gold.png"><img width=300 src="image/new_logo_gold_300x152.png"></a><br>
+</td></tr></table></div>
+
+<div id="twocol">
+<table border="0" width="100%" cellpadding="5">
+<tr><td width="43%" valign=top>
+
+<style>
+#toggleMe {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide" href=""><b>[+] ape</b></a> <img src=https://cranlogs.r-pkg.org/badges/ape>
+<p id="toggleMe">ape is a package written in <a href="http://www.R-project.org">R</a> for the analysis of phylogenetics and evolution. It is used within the community of evolutionary biologists for data analysis and as a framework for the development of new analytical methods. Since 2003, ape has been cited more than 15,000 times, and more than 300 R packages depending on ape have been released on <a href="http://cran.r-project.org">CRAN</a>.<br><br>To know more about ape, please visit the pages on this site.</p><br>
+
+<script>
+document.getElementById('showhide').onclick = function () {
+    changeDisplayState('toggleMe', 'showhide', '<b>[+] ape</b>', '<b>[&minus;] ape</b>');
+    return false;
+};
+</script>
+
+<style>
+#toggleMe2 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide2" href=""><b>[+] pegas</b></a> <img src=https://cranlogs.r-pkg.org/badges/pegas>
+<p id="toggleMe2">pegas is a package for the analysis of population and evolutionary genetics; it is a companion package of ape. To know more about pegas, please visit its <a href="pegas.html">page</a> on this site.</p><br>
+
+<script>
+document.getElementById('showhide2').onclick = function () {
+    changeDisplayState('toggleMe2', 'showhide2', '<b>[+] pegas</b>', '<b>[&minus;] pegas</b>');
+    return false;
+};
+</script>
+
+<style>
+#toggleMe3 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide3" href=""><b>[+] coalescentMCMC</b></a> <img src=https://cranlogs.r-pkg.org/badges/coalescentMCMC>
+<p id="toggleMe3">coalescentMCMC is a package for coalescent analysis. Since version 0.4, this package has been significantly improved. Several models of temporal change of &Theta; are available and can be compared with log-likelihood or information criteria (AIC, BIC, DIC). Running the chains is very flexible so that they can be run successively, in parallel, or in interaction. The outputs are analysed with the package <a href="http://cran.r-project.org/web/packages/coda/index.html">coda</a>. So all analyses (data preparation, running the chains, convergence diagnostics, parameter estimation, model comparison, &hellip;) are done in the same environment. Computing times are reasonably short. The package comes with two vignettes giving details on how to run these analyses.</p><br>
+
+<script>
+document.getElementById('showhide3').onclick = function () {
+    changeDisplayState('toggleMe3', 'showhide3', '<b>[+] coalescentMCMC</b>', '<b>[&minus;] coalescentMCMC</b>');
+    return false;
+};
+</script>
+
+<style>
+#toggleMe4 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide4" href=""><b>[+] phylobench</b></a> 
+<p id="toggleMe4">phylobench is a package for phylogenetic benchmarking. It is distributed on <a href="https://github.com/emmanuelparadis/phylobench">GitHub</a>.</p><br>
+
+<script>
+document.getElementById('showhide4').onclick = function () {
+    changeDisplayState('toggleMe4', 'showhide4', '<b>[+] phylobench</b>', '<b>[&minus;] phylobench</b>');
+    return false;
+};
+</script>
+
+<style>
+#toggleMe5 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide5" href=""><b>[+] apeTests</b></a> 
+<p id="toggleMe5">apeTests is a package for benchmarking and testing <b>ape</b>. It is distributed on <a href="https://github.com/emmanuelparadis/apeTests">GitHub</a>.</p><br>
+
+<script>
+document.getElementById('showhide5').onclick = function () {
+    changeDisplayState('toggleMe5', 'showhide5', '<b>[+] apeTests</b>', '<b>[&minus;] apeTests</b>');
+    return false;
+};
+</script>
+
+<style>
+#toggleMe6 {background:#FFF0E6; display:none; margin:0px; padding:.75em;}
+</style>
+
+<a id="showhide6" href=""><b>[+] psmcr</b></a> 
+<p id="toggleMe6">psmcr is an R port of psmc, the program for Pairwise Sequential Markovian Coalescent (PSMC). It is distributed on <a href="https://github.com/emmanuelparadis/psmcr">GitHub</a>.</p><br>
+
+<script>
+document.getElementById('showhide6').onclick = function () {
+    changeDisplayState('toggleMe6', 'showhide6', '<b>[+] psmcr</b>', '<b>[&minus;] psmcr</b>');
+    return false;
+};
+</script>
+
+</td><td valign=top align=right width="57%">
+
+<style type="text/css" media="all">
+.scrollbox {
+width: 90%;
+overflow: auto;
+border: 1px solid black;
+padding-top: 3pt;
+padding-left: 3pt;
+padding-right: 3pt;
+justify: left}
+</style>
+
+<font color=#333><b>Courses, workshops, ...</b></font>
+<div class="scrollbox" style="height: 6em">
+
+<font color=green><b>18&ndash;22 July 2022:</b></font> The 9th edition of the course <q>Phylogenetic analysis using R</q> will be ONLINE. <a href="https://www.transmittingscience.com/courses/evolution/phylogenetic-analysis-using-r/" target="blank">More...</a><br><br>
+
+<font color=green><b>19&ndash;23 July 2021:</b></font> 8th edition of the course <q>Phylogenetic analysis using R</q> will be ONLINE. <a href="https://www.transmittingscience.com/courses/evolution/phylogenetic-analysis-using-r/" target="blank">More...</a><br><br>
+
+<font color=green><b>24&ndash;28 August 2020:</b></font> 7th edition of the course <q>Phylogenetic analysis using R</q> will be ONLINE.<br><br>
+
+<font color=green><b>3&ndash;7 September 2018:</b></font> course <q>Phylogenetic analysis using R</q> in Barcelona.<br><br>
+
+<font color=green><b>29&ndash;February 2 January 2018:</b></font> course <q>Phylogenetic analysis using R</q> in Scene (Scotland).<br><br>
+
+<font color=green><b>6&ndash;10 March 2017:</b></font> course <q>Phylogenetic analysis using R</q> in Barcelona.<br><br>
+
+<font color=green><b>31 October&ndash;4 November 2016:</b></font> course <q>Introduction to phylogenetic analysis with R</q>.<br><br>
+
+<font color=green><b>22&ndash;26 August 2016:</b></font> course <q>Nantucket phylogeny developeR bootcamp</q> <a href="http://www.phangorn.org/pages/Nantucket.html" target="blank">More</a>.<br><br>
+
+<font color=green><b>28 June&ndash;1 July 2016:</b></font> course <q>Intensive short course on macroevolution and phylogenetic comparative methods in R</q> in San Juan, Puerto Rico <a href="http://www.mail-archive.com/r-sig-phylo@r-project.org/msg04396.html" target="blank">More</a>.<br><br>
+
+<font color=green><b>25&ndash;29 January 2016:</b></font> course <q>An introduction to phylogenetic analysis with R</q> in Barcelona <a href="http://www.transmittingscience.org/courses/phylo/phylogeny-with-r/" target="blank">More</a>.<br><br>
+
+<font color=green><b>5&ndash;9 October 2015:</b></font> course <q>Exploratory methods for population genetics using R</q> in Barcelona <a href="http://www.transmittingscience.org/courses/gen/population-gen/" target="blank">More</a>.<br><br>
+
+<font color=green><b>2&ndash;5 July 2015:</b></font> course <q>Intensive short course on phylogenetic comparative methods in R</q> in Ilhabela, Sao Paulo State <a href="http://blog.phytools.org/2015/03/intensive-short-course-on-phylogenetic_31.html" target="blank">More</a>.<br><br>
+
+<font color=green><b>4&ndash;8 May 2015:</b></font> course <q>An introduction to phylogenetic analysis with R</q> in Barcelona <a href="http://www.transmittingscience.org/courses/phylo/phylogeny-with-r/" target="blank">More</a>.<br><br>
+
+<font color=green><b>22&ndash;29 July 2014:</b></font> NESCent Academy: paleobiological and phylogenetic approaches to macroevolution (in R). <a href="https://academy.nescent.org/wiki/Paleobiological_and_phylogenetic_approaches_to_macroevolution">More</a>.<br><br>
+
+<font color=green><b>8&ndash;11 July 2014:</b></font> Intensive short course on phylogenetic comparative methods in R in Bogota. <a href="http://faculty.umb.edu/liam.revell/courses/Bogota/">More</a>.<br><br>
+
+<font color=green><b>26&ndash;28 March 2014:</b></font> <q>Formation à la phylogénétique et la génomique avec R</q> in Montpellier.<br><br>
+
+<font color=green><b>7&ndash;10 January 2014:</b></font> <q>International Biogeography Society Early Career Conference</q> in Canberra, including workshops. <a href="http://www.biogeography.org/html/Meetings/2014ECC/index.html" target="blank">More</a>.<br><br>
+
+<font color=green><b>7&ndash;11 October 2013:</b></font> <q>Disentangling evolutionary relationships with Phylogenetic Comparative Methods &ndash; Second edition</q> in Barcelona. <a href="http://www.transmittingscience.org/courses/evol/pcm/" target="blank">More</a>.<br><br>
+
+<font color=green><b>18&ndash;24 September 2013:</b></font> ForBio course: Phylogeographic methods, University of Tromsø, Norway. <a href="http://www.forbio.uio.no/events/courses/2013/phylogeography.html" target="blank">More</a>.<br><br>
+
+<font color=green><b>15&ndash;19 April 2013:</b></font> course <q>An introduction to phylogenetics and population genetics with R</q> in Barcelona <a href="http://transmittingscience.org/phylogeny_and_pop_gen_qr.htm" target="blank">More</a>.<br><br>
+
+<font color=green><b>12&ndash;16 November 2012:</b></font> course <q>Outils d'analyse de la phylogénie et de l'évolution sous R</q> in St Pierre de La Réunion (Cirad).<br><br>
+</div>
+
+</td></tr></table></div>
+
+<div id="body">
+<hr>
+<font color=#333333><b>NEWS</b></font><br>
+
+<br><font color=green>[2023-03-13]</font> ape 5.7-1 has been released. It fixes the implicit dependence on R >= 4.1 introduced in ape 5.7 (the new version should work with R >= 3.4, and certainly with R >= 3.2).<br>
+
+<br><font color=green>[2023-02-13]</font> ape 5.7 has been released. The main new feature is the function <font face="courier">muscle5</font> which calls <a href="https://drive5.com/muscle5/">MUSCLE5</a> (<font face="courier">muscle</font> still calls MUSCLE v. 3.1). Besides, <font face="courier">print.LargeNumber</font> gains the options 'latex' and 'digits', and <font face="courier">drop.tip</font> and <font face="courier">keep.tip</font> are now generic functions. Several bugs have been fixed; in particular, <font face="courier">is.binary</font> has been fixed (it now returns FALSE with "((a:1):1,b:2,c:2):1;").<br>
+
+<br><font color=green>[2022-03-02]</font> ape 5.6-2 has been released. It fixes a few bugs.<br>
+
+<br><font color=green>[2022-01-07]</font> ape 5.6-1 has been released. It fixes bugs in <font face="courier">axisPhylo()</font> and in <font face="courier">bitsplits()</font>.<br>
+
+<br><font color=green>[2021-12-21]</font> ape 5.6 has been released. There are several new functions: <font face="courier">degree</font> computes the degree of each node in a tree or phylogenetic network, <font face="courier">solveAmbiguousBases</font> replaces R, Y, ... by A, G, C, or T depending on column-wise frequencies. <font face="courier">dnds</font> has been improved and can print details of the calculations. Several bugs were fixed.<br>
+
+<br><font color=green>[2021-12-16]</font> pegas 1.1 has been released. It fixes a few bugs.<br>
+
+<br><font color=green>[2021-05-17]</font> pegas 1.0-1 has been released. It fixes a bug in plotting haplotype networks.<br>
+
+<br><font color=green>[2021-04-25]</font> ape 5.5 has been released. This includes a few new functions, some internal improvements (partitcularly <font face="courier">dist.dna</font> and <font face="courier">nj</font>), and several bug fixes. There are two new vignettes on simulation and enumeration of random trees, and on some basic and advanced topics on plotting trees.<br>
+
+<br><font color=green>[2021-04-08]</font> pegas 1.0 has been released. The analyses and plotting functionalities of haplotype networks have been improved, including with a new function, <font face="courier">mutations</font>, to show mutations on a plotted network, and a new vignette explaining these improvements; <font face="courier">mjn</font> and <font face="courier">rmst</font> have also been improved, particularly <font face="courier">mjn</font> which is much faster. The new function <font face="courier">write.vcf</font> writes a <q>loci</q> object into a VCF file. Several bugs were fixed.<br>
+
+<br><font color=green>[2020-09-16]</font> pegas 0.14 has been released. <font face="courier">LDscan()</font> has been improved and a bug was fixed <font face="courier">haplotype.DNA()</font>.<br>
+
+<br><font color=green>[2020-08-13]</font> ape 5.4-1 has been released. This fixes a bug in <font face="courier">boot.phylo</font> introduced in the previous release. <font face="courier">rtree</font> has been improved and can now return trees with all topologies in equal proportions and is more efficient. A bug was also fixed in <font face="courier">is.monophyletic</font>.<br>
+
+<br><font color=green>[2020-06-24]</font> The procedure involved in releasing a new version of ape has improved recently: it is summarized in the <a href="ape_development.html">Development</a> section.<br>
+
+<br><font color=green>[2020-06-04]</font> ape 5.4 has been released. There are a few new features: the function <font face="courier">getAnnotationsGenBank</font> gets sequence annotations from GenBank and returns them in a friendly format, <font face="courier">read.GenBank</font> gets a few options to make it to more efficient and flexible, <font face="courier">seg.sites</font> is more flexible, and <font face="courier">trans</font> supports more genetic codes. Several bugs were fixed.<br>
+
+<br><font color=green>[2019-10-05]</font> pegas 0.13 has been released. It includes an improved <font face="courier">haplotype.DNA()</font> and several bug fixes when handling VCF files.<br>
+
+<br><font color=green>[2019-10-05]</font> pegas 0.12 has been released. There are several new functions: <font face="courier">F2</font>, <font face="courier">F3</font> and <font face="courier">F3</font> to compute population <i>F</i>-statistics, <font face="courier">stairway</font> to estimate population size from site frequency spectra, <font face="courier">theta.tree.hetero</font> to estimate &Theta; from heterochronous samples, <font face="courier">Rst</font> to calculate R_st indices with microsatellites, <font face="courier">allelicrichness</font> and <font face="courier">rarefactionplot</font> to analyse allelic richness, as well as several new conversion functions. The <font face="courier">summary</font> method for <q>loci</q> objects is now much faster.<br>
+
+<br><font color=green>[2019-03-17]</font> ape 5.3 has been released. The new function <font face="courier">dnds</font> computes dN/dS ratios. The NAMESPACE files has now explicit exports. See the NEWS file on the right.<br>
+
+<br><font color=green>[2018-09-24]</font> ape 5.2 has been released. This includes several new functions: <font face="courier">keep.tip</font> does the opposite operation than <font face="courier">drop.tip</font>, <font face="courier">rDNAbin</font> generates random DNA sequences, and <font face="courier">updateLabel</font>, a generic function, substitutes labels in a tree or other data sets. Several minor bugs were fixed. See the NEWS file on the right.<br>
+
+<br><font color=green>[2018-07-09]</font> pegas 0.11 has been released. The new functions include the generic <font face="courier">sw</font> to compute <q>sliding window</q> summaries from DNA alignments for each row or averaged among rows, the generic <font face="courier">hap.div</font> for haplotype diversity, and <font face="courier">dist.asd</font> for the allelic sharing distance for all diploid genotypes (phased or unphased, with two alleles or more). Compressed VCF files (.vcf.gz) can now be read remotely. Several functions are significantly more efficient, and several bugs were fixed.<br>
+
+<br><font color=green>[2018-04-04]</font> ape 5.1 has been released. The new function <font face="courier">write.FASTA</font> is much more efficient than <font face="courier">write.dna(, format = "fasta")</font>, especially with very long sequences. The new function <font face="courier">comparePhylo</font> compares two trees with optional plot showing the differences. The functions <font face="courier">muscle</font>, <font face="courier">clustal</font>, and <font face="courier">clustalomega</font> can now perform progressive and tree-guided alignments for both DNA and AA sequences. <font face="courier">read.FASTA</font> can now read amino acid sequence files, and there are new functions to convert from the BioConductor classes to <font face="courier">"AAbin"</font>. Several bugs were fixed (see the NEWS file).<br>
+
+<br><font color=green>[2017-10-31]</font> ape 5.0 has been released. This is a major release. All types of phylogenetic trees and networks are now supported. The new function <font face="courier">Xplor</font> shows all data files on the local machine in a Web browser with clickable links. Many functions have been improved and several bugs have been fixed. See more in the NEWS file.<br>
+
+<br><font color=green>[2017-05-03]</font> pegas 0.10 has been released with several new functions to construct and plot haplotype networks: <font face="courier">msn</font> for the minimum spanning network, <font face="courier">rmst</font> for the randomised minimim spanning tree, <font face="courier">mjn</font> for the median-joining network (using binary or DNA data), and <font face="courier">plotNetMDS</font> for a new way to plot networks in 2- or 3-D. The display of mutations on network links has been improved with the new default being small segments. There is also a new <font face="courier">all.equal.haploNet</font> method to compare networks, a new <font face="courier">haplotype.character</font> method to get haplotypes from any kind of genotypic data, and a general purpose <font face="courier">dist.hamming</font> function.<br>
+
+<br><font color=green>[2017-02-15]</font> ape 4.1 has been released. This includes two new functions: <font face="courier">read.fastq</font> to read FASTQ files and <font face="courier">Xplorefiles</font> to find files. There are few bug fixes (detailed in the NEWS file).<br>
+
+<br><font color=green>[2016-12-01]</font> ape 4.0 has been released. This new version includes quite a lot of new features (see NEWS file on the right). DNA sequences objects can now be longer than 2.1 billion bases: the limit is 4.5 Pb. Bootstrap analyses can be parallelized on multi-cores. <font face="courier">read.GenBank</font> is faster and can now read contigs and scaffolds. There are several new functions such as <font face="courier">estimate.mu</font> and <font face="courier">estimate.dates</font>, contributed by Bradley Jones, to estimate the mutation rate and the dates for a rooted phylogenetic tree with dated tips. See more in the NEWS file.<br>
+
+<br><font color=green>[2016-05-24]</font> ape 3.5 has been released. It includes eleven new functions to work with the new class <font face="courier">"AAbin"</font> storing amino acid sequences, including <font face="courier">trans</font> for translation of DNA sequences and <font face="courier">complement</font> to return the complement of a <font face="courier">"DNAbin"</font> object. <font face="courier">checkAlignment</font> performs diagnostics on a DNA alignment; <font face="courier">plotBreakLongEdges</font> and <font face="courier">drawSupportOnEdges</font> help to plot and annotate trees. Several bug were fixed.<br>
+
+<br><font color=green>[2016-04-15]</font> pegas 0.9 has been released. It includes the new functions <font face="courier">LDscan</font> and <font face="courier">LDmap</font> for linkage disequilibrium analysis, and <font face="courier">na.omit.loci</font> to drop observations with unclearly identified genotypes. <font face="courier">nuc.div</font> and <font face="courier">theta.s</font> are now generic. Several bugs were fixed in <font face="courier">read.vcf</font> and the analysis of haplotypes is now more efficient.<br>
+
+<br><font color=green>[2015-05-29]</font> ape 3.4 has been released. It includes seven new functions, new styles for <font face="courier">phydataplot</font> (including for plotting alignments with tree), and <font face="courier">plot.phylo</font> has a new option (align.tip.label) to align the labels of the tips when the tree is not ultrametric (see the new examples in <font face="courier">?phydataplot</font>).<br>
+
+<br><font color=green>[2015-09-25]</font> pegas 0.8-2 has been released. This includes mainly bug fixes and a few improvements for the analysis of haplotypes.<br>
+
+<br><font color=green>[2015-06-24]</font> pegas 0.8-1 has been released. This is a minor update to adjust with adegenet 2.0.0.<br>
+
+<br><font color=green>[2015-05-29]</font> ape 3.3 has been released. It includes three new functions contributed by Tony Ives (<font face="courier">binaryPGLMM</font>, <font face="courier">binaryPGLMM.sim</font>, and <font face="courier">corphylo</font>). In addition, <font face="courier">rphylo</font> simulates <q>birth&ndash;death</q> trees under any time-dependent model of diversification, and <font face="courier">del.colgapsonly</font> removes the columns of a DNA alignment that contain only gaps (useful when a matrix is extracted from a large alignment). As usual, there are several improvements and bug fixes (see NEWS).<br>
+
+<br><font color=green>[2015-05-20]</font> pegas 0.8 has been released. There are several new functions for the analysis of VCF files (see <font face="courier">?VCFloci</font>), and <font face="courier">read.vcf</font> has been improved and can now read 100,000's loci in a few seconds. There is a <font face="courier">subset</font> method for haplotypes (with respect to their frequencies and/or proportion of missing data). The new function <font face="courier">alleles2loci</font> transforms a matrix of alleles into an object of class "loci".<br>
+
+<br><font color=green>[2015-03-05]</font> pegas 0.7 has been released. There are two new functions, <font face="courier">geod</font> and <font face="courier">geoTrans</font>, for analysis of geographic data. The analysis of haplotypes from DNA sequences has been improved: <font face="courier">haploNet</font> now returns alternative links, and there is a new function, <font face="courier">replot</font>, to help plot networks.<br>
+
+<br><font color=green>[2015-03-03]</font> coalescentMCMC 0.4-1 has been released. This includes a new function for graphical illustration of coalescent simulation.<br>
+
+<br><font color=green>[2014-12-05]</font> ape 3.2 has been released. It includes several new functions: <font face="courier">reconstruct</font> contributed by Manuela Royer-Carenzi and Gilles Didier with new algorithms for ASR; <font face="courier">vcv2phylo</font> contributed by Simon Blomberg transforms a VCV matrix into a tree; <font face="courier">nodepath</font> finds paths of nodes in a tree; <font face="courier">def</font> helps to (re)define attributes for annotating trees; several <font face="courier">as.DNAbin</font> methods convert DNA sequence sets from BioConductor. See the NEWS file for bug fixes and other changes.<br>
+
+<br><font color=green>[2014-08-21]</font> pegas 0.6 has been released. Phased genotypes can now be read and analysed. Some new functions include: <font face="courier">read.vcf</font> reads VCF files; <font face="courier">haplotype</font> is now generic with methods for "DNAbin" and "loci" objects; <font face="courier">LD</font> and <font face="courier">LD2</font> test for linkage disequilibrium with phased and unphased genotypes, respectively; and <font face="courier">proba.genotype</font> computes expected genotype probabilities under Hardy&ndash;Weinberg equilibrium for all levels of ploidy and any number of alleles.<br>
+
+<br><font color=green>[2014-07-15]</font> ape 3.1-4 has been released. This fixes a bug from the previous release.<br>
+
+<br><font color=green>[2014-07-12]</font> ape 3.1-3 has been released. It includes a new function (<font face="courier">rtt</font>) contributed by Rosemary McClosekey to root trees with non-contemporaneous sequences. Among the few bugs fixes: FASTA files can be read through Internet (this was possible with older versions of ape but not supported with the recent ones), and reading old GenBank records (i.e., before 1990) should not give error anymore.<br>
+
+<br><font color=green>[2014-05-27]</font> ape 3.1-2 has been released. This mainly corrects a few bugs. Plotting of circular trees has been made more flexible. Ancestral state reconctruction of discrete characters is now done with joint estimation by <font face="courier">ace</font> (marginal reconstruction is still possible).<br>
+
+<br><font color=green>[2014-03-07]</font> ape 3.1-1 has been released. This corrects a small bug in the previous version.<br>
+
+<br><font color=green>[2014-03-04]</font> ape 3.1 has been released. Bipartitions (aka splits) can be manipulated with the new functions (<font face="courier">bitsplits</font> and <font face="courier">countBipartitions</font>), so that <font face="courier">boot.phylo</font> is now much faster. Two new graphical functions, <font face="courier">phydataplot</font> and <font face="courier">ring</font>, help to annotate trees. The function <font face="courier">LTT</font> draws theoretical LTT plots in a very flexible way together with a prediction interval.<br>
+
+<br><font color=green>[2014-01-10]</font> pegas 0.5-1 has been released. The function <font face="courier">MMD</font> has been improved: it displays the expected distribution of mismatches under the assumption of constant population.<br>
+
+<br><font color=green>[2013-12-04]</font> coalescentMCMC 0.4 has been released. This is an(other) important update: see the above description of the package.<br>
+
+<br><font color=green>[2013-10-27]</font> coalescentMCMC 0.3 has been released. This is an important update: the MCMC algorithm has been carefully checked and is much faster. It is now possible to fit a time-dependent coalescent model. The vignette has been updated with a (almost) complete analysis.<br>
+
+<br><font color=green>[2013-10-08]</font> pegas 0.5 has been released. Plot of haplotype networks has been improved (see the new function <font face="courier">haploFreq</font>). The new function <font face="courier">theta.msat</font> calculates THETA using micro-satellites.<br>
+
+<br><font color=green>[2013-10-01]</font> ape 3.0-11 has been released. This mainly fixes some bugs.<br>
+
+<br><font color=green>[2013-09-10]</font> ape 3.0-10 has been released. This includes important internal recoding. The new function <font face="courier">rotateConstr</font> rotates internal branches given a constraint on the order of the tips. The long-lasting bug <font face="courier">plot(phy, main = "A title...")</font> has been fixed.<br>
+
+<br><font color=green>[2013-07-19]</font> coalescentMCMC 0.2 has been released. The MC code has been completely rewritten. The output is now analysed with the package coda.<br>
+
+<br><font color=green>[2013-07-19]</font> ape 3.0-9 has been released. This mainly fixes bugs.<br>
+
+<br><font color=green>[2013-06-06]</font> pegas 0.4-5 has been released.<br>
+
+<br><font color=green>[2013-04-02]</font> ape 3.0-8 has been released. This includes the new function <font face="courier">ewLasso</font> testing whether an incomplete distance matrix uniquely determines the edge weights of an unrooted topology. Some bugs in <font face="courier">read.dna(, "fasta")</font> have been fixed.<br>
+
+<br><font color=green>[2013-01-23]</font> pegas 0.4-4 has been released. This includes a new code for minimum spanning tree, a new estimator of THETA, and some bug fixes.<br>
+
+<br><font color=green>[2013-01-21]</font> ape 3.0-7 has been released. This includes a new function for molecular dating by PL and ML (<font face="courier">chronos</font>). Plotting circular trees has also been improved. Reading FASTA files is much faster and more efficient.<br>
+
+<br><font color=green>[2012-10-20]</font> ape 3.0-6 has been released. This includes several important internal changes to make ape faster and more stable.<br>
+
+<br><font color=green>[2012-10-08]</font> The first version of coalescentMCMC has been released.<br>
+
+<br><font color=green>[2012-08-01]</font> ape 3.0-5 has been released. This includes an improved <font face="courier">ace</font> in cases where SEs cannot be computed.<br>
+
+<br><font color=green>[2012-07-31]</font> pegas 0.4-3 has been released. This fixes some internal code.<br>
+
+<br><font color=green>[2012-06-13]</font> ape 3.0-4 has been released. This includes an improved <font face="courier">read.dna</font> to read Phylip files, and a more stable and faster <font face="courier">bionj</font>.<br>
+
+<br><font color=green>[2012-04-24]</font> pegas 0.4-2 has been released. This fixes a bug in <font face="courier">amova</font> where the <i>P</i>-value of the highest level was not correctly computed.<br>
+
+<br><font color=green>[2012-04-24]</font> ape 3.0-3 has been released. This fixes a bug in <font face="courier">birthdeath</font>.<br>
+
+<br><font color=green>[2012-04-05]</font> ape 3.0-2 has been released. This fixes a number of bugs and introduces the new function <font face="courier">alex</font> (alignment explorator).<br>
+
+<br><font color=green>[2012-03-15]</font> With the publication of the second edition of APER, its <a href="APER.html">page</a> is under renovation with a list of errata. More soon.<br>
+
+<br><font color=green>[2012-02-17]</font> ape 3.0-1 has been released. This notably fixes the bug in <font face="courier">read.GenBank</font> resulting from a change on <a href="http://www.ncbi.nlm.nih.gov/">NCBI</a>.<br>
+
+<br><font color=green>[2012-02-01]</font> Since the release of R 2.14.0, I recommend to install ape with "byte-compile" for a substantial increase in performance. This is not the default; for instance under Linux:<br>
+
+<p><font face="courier">R CMD INSTALL --byte-compile ape_3.0-2.tar.gz</font></p>
+
+See the manual "R Installation and Administration" (sect. 6.3.5).<br>
+</div>
+
+<center>
+<a href="http://www.ird.fr/" target="blank"><img width=300 src="image/ird.png"></a> <a href="http://www.isem.univ-montp2.fr/" target="blank"><img width=300 src="image/logo_isem.png"></a><br><br>
+<hr>
+Updated: 14 April 2023<br>
+<a href="ape_credits.html">Crédits</a>
+</center>
+
+<div style="clear:both"></div>
+</body>
+</html>

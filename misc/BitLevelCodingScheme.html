@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>A Bit-Level Coding Scheme for Nucleotides
+</TITLE>
+
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="hevea 1.10">
+<STYLE type="text/css">
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.toc{list-style:none;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.title{margin:2ex auto;text-align:center}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+DIV TABLE{margin-left:inherit;margin-right:inherit;}
+PRE{text-align:left;margin-left:0ex;margin-right:auto;}
+BLOCKQUOTE{margin-left:4ex;margin-right:4ex;text-align:left;}
+TD P{margin:0px;}
+.boxed{border:1px solid black}
+.textboxed{border:1px solid black}
+.vbar{border:none;width:2px;background-color:black;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.hfill{border:none;height:1px;width:200%;background-color:black;}
+.vdisplay{border-collapse:separate;border-spacing:2px;width:auto; empty-cells:show; border:2px solid red;}
+.vdcell{white-space:nowrap;padding:0px;width:auto; border:2px solid green;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px;width:auto; border:none;}
+.dcenter{margin:0ex auto;}
+.vdcenter{border:solid #FF8000 2px; margin:0ex auto;}
+.minipage{text-align:left; margin-left:0em; margin-right:auto;}
+.marginpar{border:solid thin black; width:20%; text-align:left;}
+.marginparleft{float:left; margin-left:0ex; margin-right:1ex;}
+.marginparright{float:right; margin-left:1ex; margin-right:0ex;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+.part{margin:2ex auto;text-align:center}
+</STYLE>
+</HEAD>
+<BODY >
+<!--HEVEA command line is: /usr/bin/hevea BitLevelCodingScheme.tex -->
+<!--CUT DEF section 1 --><TABLE CLASS="title"><TR><TD><H1 CLASS="titlemain">A Bit-Level Coding Scheme for Nucleotides</H1><H3 CLASS="titlerest">Emmanuel Paradis<br><br>April 20, 2007</H3></TD></TR>
+</TABLE><P>In this document, I present the coding scheme used in <FONT COLOR=purple>ape</FONT> since
+version 1.10 for DNA sequences. Its aim is to provide fast algorithms
+and efficient programs for comparing sequences, particularly to
+compute evolutionary distances. I also present results from a few
+simulations to assess the gain in computing times compared to the
+previous coding scheme.</P><!--TOC section Bit-Level Coding Scheme-->
+<H2 CLASS="section"><!--SEC ANCHOR --><A NAME="htoc1">1</A>  Bit-Level Coding Scheme</H2><!--SEC END --><P>The main idea behind the coding scheme is to use the individual bits
+to store information relative to each nucleotide in a sequence. A bit
+can take the value 0 or 1, so it is appropriate to code presence or
+absence of a given base. So, in a first approach, we could use four
+bits to code the state of a nucleotide; for instance, 1000, 0100,
+0010, and 0001, for adenine (A), guanine (G), cytosine (C), and
+thymine (T), respectively. This scheme could be used to code
+uncertainty, for instance, 1100 would mean &#X2018;A or G&#X2019; (i.e., a
+purine). However, almost all computers read and write bits in groups
+of eight (bytes). Consequently, a program cannot read (at least
+directly) whether an individual bit is 0 or 1.</P><P>So the approach sketched above should be extended to include
+four more bits that could be used to store additional information on
+the nucleotide. Doing this way, a nucleotide is coded with the
+smallest unit of information in a computer, that is a
+byte. Figure <A HREF="#fig:bitcode">1</A> summarizes the proposed scheme. The
+bits 1&#X2013;4 are used as described above. The fifth bit is set to 1 if
+the base is known exactly (i.e., only one of the bits 1&#X2013;4 is set to
+1), 0 otherwise. The sixth and seventh bits are used for aligned
+sequences: the former is set to 1 if an alignment gap has been
+inserted, and the latter is set to 1 if the character is completely
+unknown. The eighth bit is currently unused. Table <A HREF="#tab:bitcode">1</A>
+gives the detailed coding scheme and the correspondance with IUPAC
+ambiguity code.<SUP><A NAME="text1" HREF="#note1">1</A></SUP></P><BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center"><IMG SRC="fig_coding.png"></DIV>
+<DIV CLASS="caption"><TABLE CELLSPACING=6 CELLPADDING=0><TR><TD VALIGN=top ALIGN=left>Figure 1: Use of the eight bits of the bit-level coding scheme.</TD></TR>
+</TABLE></DIV><A NAME="fig:bitcode"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE><P>The proposed bit-level coding scheme has the same memory requirements
+than the commonly used coding based on the IUPAC ambiguity code
+if the ASCII code, or another single-byte code; is used.
+However, uncertainty is coded implicitly in the IUPAC code. For
+instance, &#X2018;A or G&#X2019; is coded by the letter R. Consequently, querying
+whether a particular base is known exactly requires to check whether
+the letter is among A, G, C, or T. With the bit-level
+coding scheme, it is only needed to check whether the fifth bit is set
+to 1. This operation is done in some computer languages using bitwise
+operators (see Appendix).</P><P>Instead of considering the 8 bits as a character from the (extended)
+ASCII code, they are here considered as 8-bit unsigned integers, and
+so take values between 0 and 255 (= 2<SUP>8</SUP> &#X2212; 1). Consequently, usual
+numerical operators can be combined with bitwise operators to compare
+bases efficiently. As an example, let us consider the case where one
+wants to compare two bases. With the character coding scheme, this
+requires to run through a series of string comparisons according to
+the ambiguity code. With the bit-level coding scheme, the bitwise
+operator &#X201C;AND&#X201D; is used to compare the two bases: it sets the bits of
+the result to 1 if the input bits are both set to 1, and 0
+otherwise. So, if two bases are different, the result of this
+comparison has its four first bits set to 0 (0000xxxx, where x is
+either 0 or 1). It is then only necessary to compare this result with
+the next larger 8-bit integer 00010000 (= 16): if it is less than
+16, then both bases are different.</P><P>An advantage of the bit-level coding here is that this comparison
+procedure is robust to uncertainty on the state of the
+nucleotides. For instance, though the two letters A and R are
+different, the nucleotides they code for may not be different because since R codes
+for &#X2018;A or G&#X2019;. With the bit-level code, the first four bits of A and R
+are 1000 and 1100, respectively. The operation &#X2018;1000 AND 1100&#X2019; returns
+1000, indicating that the two nucleotides may not be different. On the
+other hand, the same operation on 1000 and 0011 (= Y = &#X2018;C or T&#X2019;) returns
+0000, so that we are sure that both nucleotides are different, even
+though one is not known with certainty. The Appendix gives further
+detailed examples on more specific comparisons that may be used in
+computing some evolutionary distances.</P><!--TOC section Implementation-->
+<H2 CLASS="section"><!--SEC ANCHOR --><A NAME="htoc2">2</A>  Implementation</H2><!--SEC END --><P>The bit-level coding scheme can be implemented with any system or
+language that can manipulate 8-bit unsigned integers, and that has
+bitwise operators (e.g., C or C++). The current implementation
+has been done with the C language using the unsigned char data
+type. It is available as a series of macro functions (see
+Appendix). The unsigned char data type may also be used in R
+where it is called <TT>"raw"</TT> data type.</P><P>Some utility functions are also available to read and write sequence
+files, transform sequences from and to the bit-level coding scheme,
+compute base frequencies, identify segregating sites, perform deletion
+of sites with gaps in a set of aligned sequences, and compute some
+summary statistics such as nucleotidic diversity, or the proportion of
+pairwise differences. Computation of distances is possible under
+eleven evolutionary models (JC69, K80, F81, K81, F84, BH87, T92, TN93,
+GG95, LogDet, and paralinear), as well as the corresponding
+variances. A &#X3B3;-correction for inter-sites variation is possible
+when available from the literature (JC69, K80, F81, and TN93).</P><BLOCKQUOTE CLASS="table"><DIV CLASS="center"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV><DIV CLASS="caption"><TABLE CELLSPACING=6 CELLPADDING=0><TR><TD VALIGN=top ALIGN=left>Table 1: The bit-level coding scheme for nucleotides presented in
+this paper.<A NAME="tab:bitcode"></A></TD></TR>
+</TABLE></DIV>
+<TABLE CELLSPACING=6 CELLPADDING=0><TR><TD ALIGN=left NOWRAP>Nucleotide</TD><TD ALIGN=center NOWRAP>IUPAC code</TD><TD ALIGN=center NOWRAP>Bit-level code</TD><TD ALIGN=right NOWRAP>Value<SUP><I>a</I></SUP></TD></TR>
+<TR><TD ALIGN=left NOWRAP>A</TD><TD ALIGN=center NOWRAP>A</TD><TD ALIGN=center NOWRAP>10001000</TD><TD ALIGN=right NOWRAP>136</TD></TR>
+<TR><TD ALIGN=left NOWRAP>G</TD><TD ALIGN=center NOWRAP>G</TD><TD ALIGN=center NOWRAP>01001000</TD><TD ALIGN=right NOWRAP>72</TD></TR>
+<TR><TD ALIGN=left NOWRAP>C</TD><TD ALIGN=center NOWRAP>C</TD><TD ALIGN=center NOWRAP>00101000</TD><TD ALIGN=right NOWRAP>40</TD></TR>
+<TR><TD ALIGN=left NOWRAP>T</TD><TD ALIGN=center NOWRAP>T</TD><TD ALIGN=center NOWRAP>00011000</TD><TD ALIGN=right NOWRAP>24</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or G</TD><TD ALIGN=center NOWRAP>R</TD><TD ALIGN=center NOWRAP>11000000</TD><TD ALIGN=right NOWRAP>192</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or C</TD><TD ALIGN=center NOWRAP>M</TD><TD ALIGN=center NOWRAP>10100000</TD><TD ALIGN=right NOWRAP>160</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or T</TD><TD ALIGN=center NOWRAP>W</TD><TD ALIGN=center NOWRAP>10010000</TD><TD ALIGN=right NOWRAP>144</TD></TR>
+<TR><TD ALIGN=left NOWRAP>G or C</TD><TD ALIGN=center NOWRAP>S</TD><TD ALIGN=center NOWRAP>01100000</TD><TD ALIGN=right NOWRAP>96</TD></TR>
+<TR><TD ALIGN=left NOWRAP>G or T</TD><TD ALIGN=center NOWRAP>K</TD><TD ALIGN=center NOWRAP>01010000</TD><TD ALIGN=right NOWRAP>80</TD></TR>
+<TR><TD ALIGN=left NOWRAP>C or T</TD><TD ALIGN=center NOWRAP>Y</TD><TD ALIGN=center NOWRAP>00110000</TD><TD ALIGN=right NOWRAP>48</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or G or C</TD><TD ALIGN=center NOWRAP>V</TD><TD ALIGN=center NOWRAP>11100000</TD><TD ALIGN=right NOWRAP>224</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or C or T</TD><TD ALIGN=center NOWRAP>H</TD><TD ALIGN=center NOWRAP>10110000</TD><TD ALIGN=right NOWRAP>176</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or G or T</TD><TD ALIGN=center NOWRAP>D</TD><TD ALIGN=center NOWRAP>11010000</TD><TD ALIGN=right NOWRAP>208</TD></TR>
+<TR><TD ALIGN=left NOWRAP>G or C or T</TD><TD ALIGN=center NOWRAP>B</TD><TD ALIGN=center NOWRAP>01110000</TD><TD ALIGN=right NOWRAP>112</TD></TR>
+<TR><TD ALIGN=left NOWRAP>A or G or C or T</TD><TD ALIGN=center NOWRAP>N</TD><TD ALIGN=center NOWRAP>11110000</TD><TD ALIGN=right NOWRAP>240</TD></TR>
+<TR><TD ALIGN=left NOWRAP>Alignement gap (&#X2013;)</TD><TD ALIGN=center NOWRAP>&nbsp;</TD><TD ALIGN=center NOWRAP>00000100</TD><TD ALIGN=right NOWRAP>4</TD></TR>
+<TR><TD ALIGN=left NOWRAP>Unknown character (?)</TD><TD ALIGN=center NOWRAP>&nbsp;</TD><TD ALIGN=center NOWRAP>00000010</TD><TD ALIGN=right NOWRAP>2</TD></TR>
+</TABLE><P><SUP><I>a</I></SUP> 8-bit unsigned integer
+</P><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></DIV></BLOCKQUOTE><!--TOC section Simulation Study-->
+<H2 CLASS="section"><!--SEC ANCHOR --><A NAME="htoc3">3</A>  Simulation Study</H2><!--SEC END --><!--TOC subsection Methods-->
+<H3 CLASS="subsection"><!--SEC ANCHOR --><A NAME="htoc4">3.1</A>  Methods</H3><!--SEC END --><P>I assessed the gain in computing time of evolutionary distances
+resulting from the bit-level coding scheme.
+Three programs were selected: PHYLIP version 3.61, the character
+coding scheme used in <FONT COLOR=purple>ape</FONT> version 1.9-2, and the bit-level coding
+scheme implemented in C and called from R (as implemented in <FONT COLOR=purple>ape</FONT>
+version 1.10 and later). Two nucleotidic sequences were randomly
+generated so that 10% of the sites were changed randomly between
+them. Thus, on average 7.5% of the sites were actually different
+between both sequences. A few simulations showed that
+the proportion of variable sites had no effect on computing times. The
+sequence length took the values 10<SUP>4</SUP>, 10<SUP>5</SUP>, 2 × 10<SUP>5</SUP>, then
+up to 2 × 10<SUP>6</SUP> with steps of 2 × 10<SUP>5</SUP>. The distances
+between each pair of sequences were calculated with the four models
+available in PHYLIP (JC69, K80, F84, and LogDet) using the three programs
+successively. All the simulations were done with R version 2.4.0; the
+computing times were recorded with R&#X2019;s function <TT>system.time</TT>.
+This was replicated 10 times for each sequence length.
+A further set of simulations were run using only the bit-level coding
+scheme with sequence lengths equal to 10<SUP>5</SUP>, and from 10<SUP>6</SUP> up to
+10<SUP>7</SUP> with steps of 10<SUP>6</SUP>. The same four models were used.</P><P>All simulations were done with a computer equiped with a processor at
+2.33 GHz with 2 Gb of RAM running Linux Knoppix 5.0.1 (kernel 2.6.17).</P><!--TOC subsection Results-->
+<H3 CLASS="subsection"><!--SEC ANCHOR --><A NAME="htoc5">3.2</A>  Results</H3><!--SEC END --><P>For a given program and a given model, the computing times were
+roughly linearly related with the sequence length, though it seems
+that computing times are overestimated by a linear approximation for
+the smallest sequence lengths (Fig. <A HREF="#fig:timescheme">2</A>). Overall,
+the character coding scheme used in <FONT COLOR=purple>ape</FONT> 1.9-2 gave the worst
+performance, the bit-level coding scheme gave the best one, and
+PHYLIP gave intermediate results. The exception was with the LogDet
+model where PHYLIP performed better than the character coding scheme
+for sequence lengths up to 6 × 10<SUP>5</SUP> nucleotides, but the
+difference was opposite for longer sequences.</P><BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center"><IMG SRC="ComparisonAmongSchemes.png"></DIV>
+<DIV CLASS="caption"><TABLE CELLSPACING=6 CELLPADDING=0><TR><TD VALIGN=top ALIGN=left>Figure 2: Comparison of the computing times among
+different programs for four different models with sequences up to 2
+× 10<SUP>6</SUP> nucleotides.</TD></TR>
+</TABLE></DIV><A NAME="fig:timescheme"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE><P>The detailed simulations with the bit-level coding scheme showed that
+its computing time was around 0.1 sec for 2 × 10<SUP>6</SUP> nucleotides
+(Fig. <A HREF="#fig:timebitcode">3</A>). For the same sequence length, the
+computing times of both other programs were around 6 sec or longer
+depending on the model. The bit-level coding scheme is thus at least
+60 times faster. We can extrapolate linearly these computing times to
+get 5 × 10<SUP>&#X2212;8</SUP> × <I>L</I> and 3 × 10<SUP>&#X2212;6</SUP> × <I>L</I>,
+respectively, where <I>L</I> is the sequence length. So for  <I>L</I> = 10<SUP>7</SUP>, we
+find a computing time for the bit-level coding scheme &#X2248;
+0.5 sec, which agrees well with the observed results of the detailed
+simulations (Fig. <A HREF="#fig:timebitcode">3</A>). For the same sequence
+length, the computing time of <FONT COLOR=purple>ape</FONT> 1.9-2 or PHYLIP is predicted to be
+at least 30 sec. <I>L</I> should be understood as the number of pairwise
+comparisons, that is, in the case of computing a distance matrix among
+<I>n</I> sequences, the product of the sequence length with <I>n</I>(<I>n</I>&#X2212;1)/2.</P><BLOCKQUOTE CLASS="figure"><DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV>
+<DIV CLASS="center"><IMG SRC="BitLevelCodingScheme.png"></DIV>
+<DIV CLASS="caption"><TABLE CELLSPACING=6 CELLPADDING=0><TR><TD VALIGN=top ALIGN=left>Figure 3: Computing times for four different models
+using the bit-level coding scheme for sequences up to 10<SUP>7</SUP>
+nucleotides.</TD></TR>
+</TABLE></DIV><A NAME="fig:timebitcode"></A>
+<DIV CLASS="center"><HR WIDTH="80%" SIZE=2></DIV></BLOCKQUOTE><P>Interestingly, the longest computations with the bit-level coding
+scheme were achieved with the LogDet model, whereas this was with F84
+with the character coding scheme or PHYLIP.</P><!--TOC section Discussion-->
+<H2 CLASS="section"><!--SEC ANCHOR --><A NAME="htoc6">4</A>  Discussion</H2><!--SEC END --><P>The coding scheme for nucleotides presented in this paper results in
+very substantial gains in computing times when comparing sequences.
+The main reason of this is that the operators used for comparing bases
+are more efficient than the usual operators for comparing character
+strings. There is also a contrast between the character coding scheme
+and the bit-level coding scheme in the way the data are stored in R. In the
+former, each nucleotide is stored as a single character string, so
+that reading the different sites of a sequence requires to look for
+as many data arrays as sites. On the other hand, with the
+bit-level coding scheme, each sequence is stored as a single array, so
+that reading the different nucleotides is more direct in terms of
+memory addressing. In fact, in the present implementation in R, even a
+set of sequences is stored as a single data array.</P><P>The comparison between PHYLIP and <FONT COLOR=purple>ape</FONT> is difficult
+because the former requires to read the data on the disk before
+computing the distance effectively (the results are written on the
+disk, and this is included in the computing time as well, but this is
+likely to be negligible since only one distance was calculated). In spite
+of this, PHYLIP outperformed the character coding scheme for the
+longest sequences, except for the LogDet model. This model requires to
+compute the 4 × 4 contingency table of the two sequences which
+is probably done in a more efficient way in R than in PHYLIP.</P><P>Williams &amp; Zobel <A HREF="#Williams1997c">[2]</A> proposed a bitwise code for
+the compression of nucleotide databases in order to increase the speed
+of sequence searches. Cameron &amp; Williams <A HREF="#Cameron2007">[1]</A> used
+this coding scheme to improve the performance of BLASTN.
+This scheme uses a 2-bit code where each possible two-bits pattern
+codes for a different base: 00, 10, 01, and 11, for
+A, G, C, and T, respectively. It cannot code missing
+nucleotides which need to be handle in a special way before the
+sequence can be processed: the missing nucleotides are replaced
+randomly by one of the four bases; the positions of these sites are
+stored in an additional array appended to the sequence (the missing
+data are restored after processing). The main advantage of such a
+2-bit coding scheme is that it uses four times less memory to store
+the same sequence. However, it is suitable for simple comparisons such
+as those performed in a BLAST search, hence the possibility to compare
+four sites simultaneously. The computation of evolutionary distances
+requires more complex pairwise comparisons.</P><!--TOC section APPENDIX-->
+<H2 CLASS="section"><!--SEC ANCHOR --><A NAME="htoc6">5</A>  References</H2><!--SEC END -->
+<P><A NAME="Cameron2007">[1]</A> Cameron M. &amp; Williams H. E. 2007. Comparing compressed sequences
+ for faster nucleotide BLAST searches. <i>IEEE/ACM Trans. Comput. Biol.
+ Bioinform.</i> in press. <a href="http://goanna.cs.rmit.edu.au/~mcam/nucompress.pdf">goanna.cs.rmit.edu.au/~mcam/nucompress.pdf</a>.</P>
+<P><A NAME="Williams1997c">[2]</A> Williams H. &amp; Zobel J. 1997. Compression of nucleotide databases for
+    fast searching. <i>Computer Applications in the Biosciences</i> <b>13:</b> 549&ndash;554.</P>
+<H2 CLASS="section"><!--SEC ANCHOR -->APPENDIX</H2><!--SEC END --><P>The table below gives the currently available functions for the
+analysis of nucleotidic sequences coded with the bit-level coding
+scheme. They are actually defined in C as macros, and can be used like
+functions.</P><DIV CLASS="center">
+<TABLE CELLSPACING=6 CELLPADDING=0><TR><TD ALIGN=left NOWRAP>Function</TD><TD ALIGN=center NOWRAP>C code</TD><TD ALIGN=left NOWRAP>Value returned</TD></TR>
+<TR><TD ALIGN=left NOWRAP>KnownBase(a)</TD><TD ALIGN=center NOWRAP><TT>a &amp; 8</TT></TD><TD ALIGN=left NOWRAP>8 if <TT>a</TT> is known surely</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsAdenine(a)</TD><TD ALIGN=center NOWRAP><TT>a == 136</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> is adenine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsGuanine(a)</TD><TD ALIGN=center NOWRAP><TT>a == 72</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> is guanine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsCytosine(a)</TD><TD ALIGN=center NOWRAP><TT>a == 40</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> is cytosine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsThymine(a)</TD><TD ALIGN=center NOWRAP><TT>a == 24</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> is thymine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsPurine(a)</TD><TD ALIGN=center NOWRAP><TT>a &amp; 55</TT></TD><TD ALIGN=left NOWRAP>0 if <TT>a</TT> is a purine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>IsPyrimidine(a)</TD><TD ALIGN=center NOWRAP><TT>a &amp; 199</TT></TD><TD ALIGN=left NOWRAP>0 if <TT>a</TT> is a pyrimidine</TD></TR>
+<TR><TD ALIGN=left NOWRAP>DifferentBase(a, b)</TD><TD ALIGN=center NOWRAP><TT>(a &amp; b) &lt; 16</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> and <TT>b</TT> are different surely</TD></TR>
+<TR><TD ALIGN=left NOWRAP>SameBase(a, b)</TD><TD ALIGN=center NOWRAP><TT>KnownBase(a)</TT></TD><TD ALIGN=left NOWRAP>1 if <TT>a</TT> and
+<TT>b</TT> are the same surely</TD></TR>
+<TR><TD ALIGN=left NOWRAP>&nbsp;</TD><TD ALIGN=center NOWRAP><TT>&amp;&amp; a == b</TT></TD></TR>
+</TABLE>
+</DIV><P>The value returned is 0 if the condition is not met, except for
+IsPurine and IsPyrimidine where a positive non-null value is
+returned. These two functions may be defined as <TT>a &gt; 63</TT> and <TT>a &lt; 64</TT>, respectively, if the base is known surely; in both cases, the
+value 1 is returned if the condition is met, and 0 otherwise. This is
+the form used in the simulations reported in this paper.</P><P>It is possible to build more complicated functions while keeping the
+simplicity and efficiency of the bit-level coding scheme. For
+instance, the two following codes are used to compute the
+Tamura&#X2013;Nei distance (TN93).</P><DIV CLASS="center">
+<TABLE CELLSPACING=6 CELLPADDING=0><TR><TD VALIGN=top ALIGN=left NOWRAP>Code</TD><TD VALIGN=top ALIGN=left>Value returned</TD></TR>
+<TR><TD VALIGN=top ALIGN=left NOWRAP><TT>(a | b) == 200</TT></TD><TD VALIGN=top ALIGN=left>1 if one of the base
+is adenine and the other one is guanine, 0 otherwise</TD></TR>
+<TR><TD VALIGN=top ALIGN=left NOWRAP><TT>(a | b) == 56</TT></TD><TD VALIGN=top ALIGN=left>1 if one of the base
+is cytosine and the other one is thymine, 0 otherwise</TD></TR>
+</TABLE>
+</DIV><!--BEGIN NOTES document-->
+<HR CLASS="footnoterule"><DL CLASS="thefootnotes"><DT CLASS="dt-thefootnotes">
+<A NAME="note1" HREF="#text1">1</A></DT><DD CLASS="dd-thefootnotes">www.ncbi.nlm.nih.gov/SNP/iupac.html
+</DD></DL>
+<!--END NOTES-->
+<!--CUT END -->
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+<HR SIZE=2><BLOCKQUOTE CLASS="quote"><EM>This document was translated from L<sup>A</sup>T<sub>E</sub>X by
+</EM><A HREF="http://hevea.inria.fr/index.html"><EM>H</EM><EM><FONT SIZE=2><sup>E</sup></FONT></EM><EM>V</EM><EM><FONT SIZE=2><sup>E</sup></FONT></EM><EM>A</EM></A><EM>, and further edited by hand.</EM></BLOCKQUOTE></BODY>
+</HTML>

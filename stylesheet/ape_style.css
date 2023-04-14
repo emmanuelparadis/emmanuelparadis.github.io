@@ -1,0 +1,108 @@
+h3 {
+color: #0000BB;
+}
+
+.rcode {
+font-family: monospace;
+}
+
+body {
+font-family: sans-serif;
+font-size: 12pt;
+width: 650pt;
+text-align: justify;
+margin: 0 auto;
+padding: 15px;
+}
+
+#titre {
+font-family: sans-serif;
+text-align: left;
+font-weight: bold;
+font-size: 36pt;
+color: blue;
+}
+
+#twocol {
+font-family: sans-serif;
+font-size: 12pt;
+width: 650pt;
+text-align: justify;
+}
+
+bottom {
+font-family: Times, serif;
+font-size: 11pt;
+width: 850pt;
+text-align: centre;
+}
+
+/* Sortable tables */
+table.sortable thead {
+background-color:#EAEBD8;
+color:#000;
+cursor: default;
+}
+
+.sidebar {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: slategrey;
+overflow-x: hidden;
+transition: 0.1s;
+padding-top: 60px;
+}
+
+.sidebar a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 15pt;
+text-align: left;
+color: yellow;
+text-align: left;
+display: block;
+transition: 0.1s;
+}
+
+.sidebar a:hover {
+color: blue;
+}
+
+.sidebar .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+.openbtn {
+font-size: 20px;
+cursor: pointer;
+background-color: #111;
+color: white;
+padding: 10px 15px;
+border: none;
+}
+
+.openbtn:hover {
+background-color: slategrey;
+}
+
+#main {
+transition: margin-left .2s;
+padding: 16px;
+}
+
+@media screen and (max-width: 480px) {
+.sidebar {padding-top: 40px;}
+.sidebar a {font-size: 20px;}
+body {font-size: 18pt; text-align: left; width: 480pt;}
+#twocol {font-size: 18pt; width: 480pt; text-align: left;}
+#titre {font-size: 26pt;}
+}
+
