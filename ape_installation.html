@@ -32,21 +32,25 @@
 
 <p>There are many different ways to install R packages, so your way is certainly the best one; only the essential information are given here.</p>
 
-<p>ape requires R 3.2.0 or higher. In addition, the package <b>Rcpp</b> (0.12.0 or higher) must be installed on your machine.</p>
+<p>ape requires R 3.2.0 or higher. In addition, the packages <b>Rcpp</b> (0.12.0 or higher) and <b>digest</b> must be installed on your machine.</p>
 
 <p>There are no other requirement and ape runs under all operating systems where R can be installed, and under any running environment (Emacs/ESS, RStudio, ...)</p>
 
-<p>Three other packages are <q>suggested</q>: <b>expm</b>, <b>gee</b>, and <b>igraph</b>. This means that ape can be installed and used even if these packages are not installed, but you won't be able to use a few of ape's functions (e.g., <font face="courier">compar.gee</font>). Anyway, most package installation procedures also install the suggested packages (and Rcpp at the same time).</p>
+<p>Some other packages are <q>suggested</q>: <b>expm</b>, <b>gee</b>, <b>igraph</b>, and <b>phangorn</b>. This means that ape can be installed and used even if these packages are not installed, but you won't be able to use a few of ape's functions (e.g., <font face="courier">compar.gee</font>). Anyway, most package installation procedures also install the suggested packages (and Rcpp and digest at the same time).</p>
 
-<p>The version of <a href="https://cran.r-project.org/package=ape">ape on CRAN</a> is considered <i>stable</i>. There is no fixed schedule for a new release though they usually happen once or twice in a year.</p>
+<p>The version of <a href="https://cran.r-project.org/package=ape">ape on CRAN</a> is considered <i>stable</i>. There is no fixed schedule for a new release though they usually happen once in a year.</p>
 
 <hr>
 <a name="github"></a>
 <h3>Installation from GitHub</h3>
 
-The version of ape on GitHub is considered as <i>testing</i>. The stable version on CRAN is usually numbered <b>x.y</b> (1.0, 1.1, 2.0, ...) while the testing version is numbered <b>x.y-t</b> where <b>x.y</b> is the current version on CRAN, and <b>t</b> is 1, 2, ... With this system the testing version number is always larger than the current CRAN version, but always smaller than the next one. There can be exceptions to this scheme if a quick bug-fixing release is needed on CRAN (e.g., version 5.4-1).</p>
+The version of ape on GitHub is considered as <i>testing</i>. The stable version on CRAN is usually numbered <b>x.y</b> (1.0, 1.1, 2.0, ...) or <b>x.y-z</b> (where <b>z</b> is 1, 2, ...) while the testing version is numbered <b>x.y-z.t</b> where <b>t</b> is 1, 2, ... With this system the testing version number is always larger than the current CRAN version, but always smaller than the next one.</p>
 
 <p>The testing version includes new features that will be included in the future version on CRAN. It is mainly directed to maintainers of packages depending on ape, though it can be used by those who are curious about new features.</p>
+
+<p>Compiled versions of the GitHub <i>testing</i> version for Linux, MacOS X, or Windows are provided on <a href="https://github.com/r-universe">R-universe</a> (big thanks to them):</p>
+
+<p><a href="https://emmanuelparadis.r-universe.dev/ape#">https://emmanuelparadis.r-universe.dev/builds</a></p>
 
 <p>If you want to know more about ape's development, see the <a href="ape_development.html">Development</a> section.
 
@@ -54,7 +58,7 @@ The version of ape on GitHub is considered as <i>testing</i>. The stable version
 
 <hr>
 <center>
-Updated: 18 December 2020<br>
+Updated: 7 February 2024<br>
 <a href="ape_credits.html">Crédits</a>
 </center>
 
