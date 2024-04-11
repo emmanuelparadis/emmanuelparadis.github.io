@@ -1,10 +1,97 @@
+		CHANGES IN APE VERSION 5.8
+
+
+NEW FEATURES
+
+    o dist.topo() has a new option 'mc.cores'. With the default PH85
+      distance, the gain of using several cores is visible with 200+
+      trees. The internal code for the score distance has been
+      improved and is twice faster with a single core, and 4-5 times
+      faster with mc.cores = 2.
+
+    o keep.tip() gains a '...' argument which is passed to drop.tip().
+      The behaviour of the latter is changed so that node labels, if
+      available, are used to create new tip labels when subtree = TRUE
+      (see PR #90 on GitHub).
+
+    o nj() can now handle distances stored in long vectors. There was
+      previously an implicit limit to 46,341 observations (see PR #97
+      on GitHub).
+
+    o del.gaps(), del.colgapsonly(), and del.rowgapsonly() now accepts
+      objects of class "AAbin". Besides, the class of the input object
+      is always respected (it used to be "DNAbin" only even when it
+      had several elements).
+
+    o makeNodeLabel() is now generic with methods for the "phylo" and
+      "multiPhylo" classes.
+
+    o unroot() gains two options, 'collapse.singles' and
+      'keep.root.edge', to handle some complicated situations (see
+      issue #103 on GitHub).
+
+    o read.GenBank() has a new argument 'type' to download AA
+      sequences. The default is type = "DNA", and the other choice is
+      type = "AA".
+
+
+BUG FIXES
+
+    o rtt() was fixed when dates include NAs (issue #73 on GitHub).
+
+    o njs(), bionj(), bionjs(), fastme.bal(), and fastme.ols() now
+      check that there are at least three observations in the distance
+      matrix (issue #84 on GitHub).
+
+    o nodelabels(, frame = "circle") used to ignore the argument
+      'adj'. This is fixed (issue #85 on GitHub).
+
+    o write.tree() ignored tree names. This bug was introduced in ape
+      5.7 (see issue #101 on GitHub).
+
+    o read.tree() now reads correctly trees with many nodes but a
+      single tip such as "(());" (see issue #104 on GitHub).
+
+    o bitsplits() failed with large trees. There are now checks on
+      memory requirements; some explanations have been added in the
+      help page.
+
+    o comparePhylo() failed with two large trees. This is fixed.
+
+
+OTHER CHANGES
+
+    o .uncompressTipLabel() now returns an object of the same class
+      than the input object (previously the returned object was always
+      of class "multiPhylo").
+
+    o The help page of is.binary() has been clarified that branch
+      lengths are ignored (issue #83 on GitHub).
+
+    o dist.nodes() has an improved internal C code with unlimited tree
+      size. The code is three times faster with small trees; twice
+      faster with ~1000 tips (the gain is less with bigger trees).
+
+    o ace() now uses node labels, if available, in the output.
+
+    o comparePhylo() now restores the graphical window in its previous
+      state (i.e., after calling layout() if plot = TRUE).
+
+    o read.tree() now gives a warning (still returning NULL) if there
+      is (are) no semicolon(s) [end of tree(s)] in the Newick string.
+
+    o write.tree() now gives a warning if the length of the node
+      labels does not match the number of nodes given by '$Nnode'.
+
+
+
 		CHANGES IN APE VERSION 5.7-1
 
 
 BUG FIXES
 
-    o Some very unbalanced resulted in a segfault (see issue #70 on
-      GitHub).
+    o Some very unbalanced trees resulted in a segfault (see issue #70
+      on GitHub).
 
 
 OTHER CHANGES
@@ -12,6 +99,9 @@ OTHER CHANGES
     o ape 5.7 introduced an implicit dependence on R >= 4.1. This has
       been corrected and this version should work with R >= 3.4 (and
       certainly with R >= 3.2).
+
+    o All examples should now write files in the TMP directory (some
+      still used to do this in the user's working directory).
 
 
 
@@ -54,8 +144,9 @@ BUG FIXES
     o consensus() did not use postprocess.prop.part() and might
       scramble nodelabels (see PR #65 on GitHub).
 
-    o is.binary.phylo() returned TRUE with trees such as
-      ((a:1):1,b:2,c:2):1;.
+    o is.binary.phylo() used to return TRUE with trees such as
+      ((a:1):1,b:2,c:2):1;. This test now conforms with what is
+      written in the documentation.
 
 
 OTHER CHANGES
