@@ -1,0 +1,122 @@
+ID	Locality	Region
+13_29	Thomasville, GA	SEU
+13_34	Thomasville, GA	SEU
+20_17	Selba, AL	SEU
+20_28	Selba, AL	SEU
+21_36	Birmingham, AL	SEU
+21_39	Birmingham, AL	SEU
+24_2	Meridian, MS	SEU
+24_9	Meridian, MS	SEU
+28_8	Sebastian, FL	SEU
+33_11	Freeport, Grand Bahamas-west	CAR
+33_16	Freeport, Grand Bahamas-west	CAR
+36_12	George Town, Exumas	CAR
+36_9	George Town, Exumas	CAR
+40_10	Bullock's Harbor, Berry Islands	CAR
+40_23	Bullock's Harbor, Berry Islands	CAR
+42_20	Cockburn Town, San Salvador	CAR
+42_23	Cockburn Town, San Salvador	CAR
+43_18	Mayaguana, Mayaguana	CAR
+43_19	Mayaguana, Mayaguana	CAR
+4_12	Tampa Bay, FL	SEU
+4_27	Tampa Bay, FL	SEU
+CO1-HE	Cameroon	CAM
+CO10N-HE	Cameroon	CAM
+CO13N-HE	Cameroon	CAM
+CO14-HE	Cameroon	CAM
+CO15N-HE	Cameroon	CAM
+CO16-HE	Cameroon	CAM
+CO2-HE	Cameroon	CAM
+CO4N-HE	Cameroon	CAM
+CO8N-HE	Cameroon	CAM
+CO9N-HE	Cameroon	CAM
+FR23	Montpellier	FRA
+FR24	Montpellier	FRA
+FR25	Montpellier	FRA
+FR26	Montpellier	FRA
+FR28	Montpellier	FRA
+FR29	Montpellier	FRA
+FR30	Montpellier	FRA
+FR31	Montpellier	FRA
+FR32	Montpellier	FRA
+FR33	Montpellier	FRA
+FR34	Montpellier	FRA
+FR35	Montpellier	FRA
+FR37	Montpellier	FRA
+FR38	Montpellier	FRA
+FR39	Montpellier	FRA
+FR42	Montpellier	FRA
+FR44	Montpellier	FRA
+FR45	Montpellier	FRA
+FR46	Montpellier	FRA
+FR48	Montpellier	FRA
+H_25	Port Au Prince, Haiti	CAR
+H_29	Port Au Prince, Haiti	CAR
+Raleigh_208	Raleigh	RAL
+Raleigh_301	Raleigh	RAL
+Raleigh_303	Raleigh	RAL
+Raleigh_304	Raleigh	RAL
+Raleigh_313	Raleigh	RAL
+Raleigh_324	Raleigh	RAL
+Raleigh_335	Raleigh	RAL
+Raleigh_357	Raleigh	RAL
+Raleigh_358	Raleigh	RAL
+Raleigh_362	Raleigh	RAL
+Raleigh_365	Raleigh	RAL
+Raleigh_375	Raleigh	RAL
+Raleigh_379	Raleigh	RAL
+Raleigh_380	Raleigh	RAL
+Raleigh_399	Raleigh	RAL
+Raleigh_427	Raleigh	RAL
+Raleigh_437	Raleigh	RAL
+Raleigh_486	Raleigh	RAL
+Raleigh_517	Raleigh	RAL
+Raleigh_555	Raleigh	RAL
+Raleigh_639	Raleigh	RAL
+Raleigh_705	Raleigh	RAL
+Raleigh_707	Raleigh	RAL
+Raleigh_712	Raleigh	RAL
+Raleigh_714	Raleigh	RAL
+Raleigh_730	Raleigh	RAL
+Raleigh_732	Raleigh	RAL
+Raleigh_765	Raleigh	RAL
+Raleigh_774	Raleigh	RAL
+Raleigh_786	Raleigh	RAL
+Raleigh_799	Raleigh	RAL
+Raleigh_820	Raleigh	RAL
+Raleigh_852	Raleigh	RAL
+Winters_114	Winters	WIN
+Winters_23	Winters	WIN
+Winters_26	Winters	WIN
+Winters_33	Winters	WIN
+Winters_34	Winters	WIN
+Winters_35	Winters	WIN
+Winters_36	Winters	WIN
+Winters_37	Winters	WIN
+Winters_38	Winters	WIN
+Winters_40	Winters	WIN
+Winters_43	Winters	WIN
+Winters_47	Winters	WIN
+Winters_49	Winters	WIN
+Winters_50	Winters	WIN
+Winters_52	Winters	WIN
+Winters_54	Winters	WIN
+Winters_55	Winters	WIN
+Winters_56	Winters	WIN
+Winters_59	Winters	WIN
+Winters_60	Winters	WIN
+Winters_62	Winters	WIN
+Winters_63	Winters	WIN
+Winters_64	Winters	WIN
+Winters_66	Winters	WIN
+Winters_67	Winters	WIN
+Winters_68	Winters	WIN
+Winters_69	Winters	WIN
+Winters_74	Winters	WIN
+Winters_76	Winters	WIN
+Winters_79	Winters	WIN
+Winters_80	Winters	WIN
+Winters_82	Winters	WIN
+Winters_84	Winters	WIN
+Winters_86	Winters	WIN
+Winters_87	Winters	WIN
